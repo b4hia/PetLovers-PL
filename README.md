@@ -7,6 +7,7 @@
 
 <p>
     <a href="#sobre">Sobre</a> | 
+    <a href="req">Requisitos do Sistema</a> |
     <a href="#tec">Tecnologia</a> | 
     <a href="#backlog">Backlogs</a> | 
     <a href="#manual">Manual de Usuário</a> |
@@ -30,9 +31,23 @@
     
 <br>
 
+<span id="req">
+  
+## 📚 Requisitos
+
+Para que a execução do sistema e seu uso sejam efetivados, tenha instalado as seguintes tecnologias:
+
+1. Git:
+  - Você precisará do Git instalado para poder fazer a clonagem deste repositório: [Clique aqui para instalar o Git](https://git-scm.com/downloads) 
+
+2. NodeJS:
+  - No momento em que for instalar o Node, escolha a versão "LTS"; [Clique aqui para instalar o Node](https://nodejs.org/en)
+
+<br>
+
 <span id="tec">
 
-## 🔌 Tecnologias
+## 🔌 Tecnologias Utilizadas
 
 <div align="center">
 <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/>
@@ -73,7 +88,7 @@
 - crie uma pasta, entre nela e abra o cmd
 - clone o repositório
 ~~~
-[git clone https://github.com/b4hia/PetLovers-PL/atv1-pl.git 
+git clone https://github.com/b4hia/PetLovers-PL/atv1-pl.git 
 ~~~
     
 - entre no clone 
