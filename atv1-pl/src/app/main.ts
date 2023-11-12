@@ -1,3 +1,4 @@
+import { log } from "console";
 import Entrada from "../io/entrada";
 import Empresa from "../modelo/empresa";
 import ApagarServico from "../negocio/apagarServico";
@@ -7,6 +8,7 @@ import CadastroCliente from "../negocio/cadastroCliente";
 import CadastroServico from "../negocio/cadastroServico";
 import ListagemClientes from "../negocio/listagemClientes";
 import ListagemServicos from "../negocio/listagemServico";
+import ApagarCliente from "../negocio/apagarCliente";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
 let empresa = new Empresa()
@@ -18,11 +20,13 @@ while (execucao) {
     console.log(`1 - Cadastrar cliente`);
     console.log(`2 - Listar todos os clientes`);
     console.log(`3 - Atualizar cliente`)
+    console.log(`4 - Deletar cliente`);
+
     //Serviços
-    console.log(`4 - Cadastrar serviço`);
-    console.log(`5 - Listar todos os serviços`);
-    console.log(`6 - Atualizar serviço`);
-    console.log(`7 - Apagar serviço`); 
+    console.log(`5 - Cadastrar serviço`);
+    console.log(`6 - Listar todos os serviços`);
+    console.log(`7 - Atualizar serviço`);
+    console.log(`8 - Apagar serviço`); 
 
     console.log(`0 - Sair`);
 
@@ -43,18 +47,22 @@ while (execucao) {
             atualizarCliente.atualizar()
             break;
         case 4:
+            let apagarCliente = new ApagarCliente(empresa.getClientes)
+            apagarCliente.apagar()
+            break;
+        case 5:
             let cadastroServico = new CadastroServico(empresa.getServicos)
             cadastroServico.cadastrar()
             break;
-        case 5:
+        case 6:
             let listagemServicos = new ListagemServicos(empresa.getServicos);
             listagemServicos.listar()
             break;
-        case 6:
+        case 7:
             let atualizacaoServico = new AtualizarServico(empresa.getServicos);
             atualizacaoServico.atualizar();
             break;
-        case 7:
+        case 8:
             let apagarServico = new ApagarServico(empresa.getServicos);
             apagarServico.apagar();
             break;
