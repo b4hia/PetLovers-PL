@@ -1,6 +1,7 @@
 import Entrada from "../io/entrada";
 import Empresa from "../modelo/empresa";
 import ApagarServico from "../negocio/apagarServico";
+import AtualizarCliente from "../negocio/atualizarCliente";
 import AtualizarServico from "../negocio/atualizarServico";
 import CadastroCliente from "../negocio/cadastroCliente";
 import CadastroServico from "../negocio/cadastroServico";
@@ -36,6 +37,10 @@ while (execucao) {
         case 2:
             let listagem = new ListagemClientes(empresa.getClientes)
             listagem.listar()
+            break;
+        case 3:
+            let atualizarCliente = new AtualizarCliente(empresa.getClientes)
+            atualizarCliente.atualizar()
             break;
         case 4:
             let cadastroServico = new CadastroServico(empresa.getServicos)
