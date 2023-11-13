@@ -10,7 +10,7 @@ import ListagemClientes from "../negocio/listagemClientes";
 import ListagemServicos from "../negocio/listagemServico";
 import ApagarCliente from "../negocio/apagarCliente";
 import PedirServico from "../negocio/pedirServico";
-import CadastroPets from "../negocio/cadastrarPet";
+import CadastroPets from "../negocio/cadastroPet";
 import ApagarPets from "../negocio/apagarPet";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
