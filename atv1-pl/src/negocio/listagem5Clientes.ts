@@ -43,7 +43,7 @@ export default class ListagemValorProdutosServicosPorCliente extends Listagem {
         const sortedClientes = Array.from(clientesValor.entries()).sort((a, b) => b[1] - a[1]);
         const top5Clientes = sortedClientes.slice(0, 5);
         top5Clientes.forEach(([cliente, valor]) => {
-            console.log(`Cliente: ${cliente.nome}`);
+            console.log(`Cliente: ${cliente.nome}`, `CPF: ${cliente.getCpf.getValor}`);
             console.log(`Valor total consumido: R$ ${valor.toFixed(2)}`);
             console.log(`--------------------------------------`);
         });

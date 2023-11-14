@@ -26,10 +26,11 @@ export default class PedirServico {
             let servico = this.servicos.find((c) => c.getNome() === nome);
 
             if (servico) {
-                cliente.getServicosConsumidos.push(servico);
+                let quantidade = this.entrada.receberNumero(`Por favor informe a quantidade que deseja pedir: `);
+                cliente.adicionarServicoConsumido(servico, quantidade);
                 console.log(`\nServiço concluído :)\n`);
             } else {
-                console.log(`\nServiço não encontrado :(`)
+                console.log(`\nServiço não encontrado :(`);
             }
 
         } else {
