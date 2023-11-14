@@ -1,4 +1,3 @@
-import { log } from "console";
 import Entrada from "../io/entrada";
 import Empresa from "../modelo/empresa";
 import ApagarServico from "../negocio/apagarServico";
@@ -40,6 +39,11 @@ while (execucao) {
     console.log(`12 - Atualizar Pet`);
     console.log(`13 - Apagar Pet`);
     
+    //Produtos
+    console.log();
+    
+
+
     
     console.log(`0 - Sair`);
 

@@ -9,10 +9,10 @@ export default class AtualizarPet extends Atualizar {
     private entrada: Entrada;
 
 
-    constructor(clientes: Array<Cliente>, entrada: Entrada) {
+    constructor(clientes: Array<Cliente>) {
         super();
         this.clientes = clientes;
-        this.entrada = entrada;
+        this.entrada = new Entrada();
     };
 
     public atualizar(): void {
