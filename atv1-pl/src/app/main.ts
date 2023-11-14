@@ -39,25 +39,28 @@ while (execucao) {
     console.log(`7 - Atualizar serviço`);
     console.log(`8 - Apagar serviço`); 
     console.log(`9 - Pedir serviço`); 
+    console.log(`10 - Listar serviços consumidos por cliente`);	
 
     //Pets
-    console.log(`10 - Cadastrar Pet`);
-    console.log(`11 - Listar todos os Pets`);
-    console.log(`12 - Atualizar Pet`);
-    console.log(`13 - Apagar Pet`);
+    console.log(`11 - Cadastrar Pet`);
+    console.log(`12 - Listar todos os Pets`);
+    console.log(`13 - Atualizar Pet`);
+    console.log(`14 - Apagar Pet`);
     
     //Produtos
-    console.log(`14 - Cadastrar produto`);
-    console.log(`15 - Listar todos os produtos`);
-    console.log(`16 - Atualizar produto`);
-    console.log(`17 - Apagar produto`);
-    console.log(`18 - Pedir produto`);
+    console.log(`15 - Cadastrar produto`);
+    console.log(`16 - Listar todos os produtos`);
+    console.log(`17 - Atualizar produto`);
+    console.log(`18 - Apagar produto`);
+    console.log(`19 - Pedir produto`);
+    console.log(`20 - Listar produtos consumidos por cliente`);	
+    
     
         
     //Listagens
-    console.log(`19 - Listar os 5 clientes que mais consumiram produtos ou serviços por valor`);
-    console.log(`20 - Listar os 10 clientes que mais consumiram produtos ou serviços por quantidade`);
-    console.log(`21 - Listar os Serviços ou Produtos mais consumidos`);
+    console.log(`21 - Listar os 5 clientes que mais consumiram produtos ou serviços por valor`);
+    console.log(`22 - Listar os 10 clientes que mais consumiram produtos ou serviços por quantidade`);
+    console.log(`23 - Listar os Serviços ou Produtos mais consumidos`);
     
     
     
