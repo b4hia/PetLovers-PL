@@ -13,6 +13,7 @@ import CadastroPets from "../negocio/cadastroPet";
 import ApagarPets from "../negocio/apagarPet";
 import AtualizarPet from "../negocio/atualizarPet";
 import ListagemPets from "../negocio/listagemPets";
+import ListagemValorProdutosServicosPorCliente from "../negocio/listagem5Clientes";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
 let empresa = new Empresa()
@@ -46,7 +47,15 @@ while (execucao) {
     console.log(`16 - Atualizar produto`);
     console.log(`17 - Apagar produto`);
         
-
+    //Listagens
+    console.log(`18 - Listar os 5 clientes que mais consumiram produtos ou serviços por valor`);
+    console.log(`19 - Listar os 10 clientes que mais consumiram produtos ou serviços por quantidade`);
+    console.log(`20 - Listar os Serviços ou Produtos mais consumidos`);
+    console.log();
+    
+    
+    
+    
     
     console.log(`0 - Sair`);
 
@@ -106,7 +115,10 @@ while (execucao) {
             let apagarPet = new ApagarPets(empresa.getClientes);
             apagarPet.apagar();
             break;
-
+        case 18:
+            let listagem5Clientes = new ListagemValorProdutosServicosPorCliente(empresa.getClientes, empresa.getProdutos, empresa.getServicos);
+            listagem5Clientes.listar();
+            break;
         case 0:
             execucao = false
             console.log(`Até mais`)
