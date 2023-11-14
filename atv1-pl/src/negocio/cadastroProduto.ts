@@ -22,5 +22,5 @@ export default class CadastroProduto extends Cadastro {
         let produto = new Produto(nome, preco);
         this.produtos.push(produto);
         console.log(`\nCadastro de produto concluído :)\n`);
-    }
-}
+    };
+};
