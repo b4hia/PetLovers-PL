@@ -14,6 +14,11 @@ import ApagarPets from "../negocio/apagarPet";
 import AtualizarPet from "../negocio/atualizarPet";
 import ListagemPets from "../negocio/listagemPets";
 import ListagemValorProdutosServicosPorCliente from "../negocio/listagem5Clientes";
+import CadastroProduto from "../negocio/cadastroProduto";
+import ListagemProdutos from "../negocio/listagemProduto";
+import AtualizarProduto from "../negocio/atualizarProduto";
+import ApagarProdutos from "../negocio/apagarProduto";
+import PedirProduto from "../negocio/pedirProduto";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
 let empresa = new Empresa()
@@ -46,12 +51,13 @@ while (execucao) {
     console.log(`15 - Listar todos os produtos`);
     console.log(`16 - Atualizar produto`);
     console.log(`17 - Apagar produto`);
+    console.log(`18 - Pedir produto`);
+    
         
     //Listagens
-    console.log(`18 - Listar os 5 clientes que mais consumiram produtos ou serviços por valor`);
-    console.log(`19 - Listar os 10 clientes que mais consumiram produtos ou serviços por quantidade`);
-    console.log(`20 - Listar os Serviços ou Produtos mais consumidos`);
-    console.log();
+    console.log(`19 - Listar os 5 clientes que mais consumiram produtos ou serviços por valor`);
+    console.log(`20 - Listar os 10 clientes que mais consumiram produtos ou serviços por quantidade`);
+    console.log(`21 - Listar os Serviços ou Produtos mais consumidos`);
     
     
     
@@ -115,7 +121,27 @@ while (execucao) {
             let apagarPet = new ApagarPets(empresa.getClientes);
             apagarPet.apagar();
             break;
+        case 14:
+            let cadastroProduto = new CadastroProduto(empresa.getProdutos);
+            cadastroProduto.cadastrar();
+            break;
+        case 15:
+            let listagemProdutos = new ListagemProdutos(empresa.getProdutos);
+            listagemProdutos.listar();
+            break;
+        case 16:
+            let atualizarProduto = new AtualizarProduto(empresa.getProdutos);
+            atualizarProduto.atualizar();
+            break;
+        case 17:
+            let apagarProduto = new ApagarProdutos(empresa.getProdutos);
+            apagarProduto.apagar();
+            break;
         case 18:
+            let pedirProduto = new PedirProduto(empresa.getProdutos, empresa.getClientes);
+            pedirProduto.pedir();
+            break;
+        case 19:
             let listagem5Clientes = new ListagemValorProdutosServicosPorCliente(empresa.getProdutos, empresa.getServicos, empresa.getClientes);
             listagem5Clientes.listar();
             break;
