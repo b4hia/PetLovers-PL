@@ -16,7 +16,7 @@ export default class AtualizarPet extends Atualizar {
     };
 
     public atualizar(): void {
-        let cpf = this.entrada.receberTexto(`Por favor, informe o número do CPF do cliente a ser atualizado: `);
+        let cpf = this.entrada.receberTexto(`Por favor, informe o número do CPF do responsável pelo Pet: `);
         this.clientes.forEach(cliente => {
             if (cliente.getCpf.getValor == cpf) {
                 if (cliente.getPets.length == 0) {
@@ -62,12 +62,3 @@ export default class AtualizarPet extends Atualizar {
         });
     };
 };
-
-// Testes
-// let clientes = [new Cliente("Wellington", "Wellington", new CPF("12345678912", new Date())), new Cliente("Wellington", "Wellington", new CPF("12345678913", new Date())), new Cliente("Wellington", "Wellington", new CPF("12345678914", new Date())), new Cliente("Wellington", "Wellington", new CPF("12345678915", new Date()))]
-
-// clientes[2].adicionarPet(new Pet("Luna", "Shitzu", "Femea", "Cachorro"));
-// clientes[3].adicionarPet(new Pet("Luna", "Shitzu", "Femea", "Cachorro"));
-// clientes[0].adicionarPet(new Pet("Luna", "Shitzu", "Femea", "Cachorro"));
-
-// new AtualizarPet(clientes, new Entrada()).atualizar();
