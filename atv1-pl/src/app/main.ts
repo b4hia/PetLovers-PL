@@ -20,6 +20,7 @@ let execucao = true
 
 while (execucao) {
     console.log(`Opções:`);
+
     //Cliente
     console.log(`1 - Cadastrar cliente`);
     console.log(`2 - Listar todos os clientes`);
@@ -40,9 +41,11 @@ while (execucao) {
     console.log(`13 - Apagar Pet`);
     
     //Produtos
-    console.log();
-    
-
+    console.log(`14 - Cadastrar produto`);
+    console.log(`15 - Listar todos os produtos`);
+    console.log(`16 - Atualizar produto`);
+    console.log(`17 - Apagar produto`);
+        
 
     
     console.log(`0 - Sair`);
