@@ -15,7 +15,7 @@ export default class CadastroServico extends Cadastro {
     }
 
     public cadastrar(): void {
-        console.log(`\nCadastro do serviço`);
+        console.log(`\nInício do Cadastro do serviço`);
         let nome = this.entrada.receberTexto(`Por favor informe o nome do serviço: `);
         let preco = parseFloat(this.entrada.receberTexto(`Por favor, informe o preço do serviço: `));
 

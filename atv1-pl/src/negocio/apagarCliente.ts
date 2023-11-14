@@ -13,7 +13,7 @@ export default class ApagarCliente extends Apagar {
     }
 
     public apagar(): void {
-        console.log(`\nExclusão do cadastro do cliente`);
+        console.log(`\nInício da Exclusão do cadastro do cliente`);
         let cpf = this.entrada.receberTexto(`Por favor, informe o número do CPF do cliente a ser excluído: `);
 
         let index = this.clientes.findIndex((c) => c.getCpf.getValor === cpf);

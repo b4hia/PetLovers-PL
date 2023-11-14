@@ -13,7 +13,7 @@ export default class AtualizarCliente extends Atualizar{
     }
 
     public atualizar(): void {
-        console.log(`\nAtualização do cadastro do cliente`);
+        console.log(`\nInício da Atualização do cadastro do cliente`);
         let cpf = this.entrada.receberTexto(`Por favor, informe o número do CPF do cliente a ser atualizado: `);
 
    

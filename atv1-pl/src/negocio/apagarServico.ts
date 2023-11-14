@@ -14,7 +14,7 @@ export default class ApagarServico extends Apagar {
     }
 
     public apagar(): void {
-        console.log(`\nExclusão do cadastro do serviço`);
+        console.log(`\nInício da Exclusão do cadastro do serviço`);
         let nome = this.entrada.receberTexto(`Por favor, informe o nome do serviço a ser excluído: `);
 
         let index = this.servicos.findIndex((c) => c.getNome() === nome);

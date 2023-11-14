@@ -11,4 +11,4 @@ export default class RG {
     public get getDataEmissao(): Date {
         return this.dataEmissao
     }
-}
+}  

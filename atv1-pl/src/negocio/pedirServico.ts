@@ -15,9 +15,9 @@ export default class PedirServico {
     }
 
     public pedir(): void {
-        console.log(`\nPedido de serviço`);
+        console.log(`\nInício do Pedido de serviço`);
 
-        let cpf = this.entrada.receberTexto(`Por favor informe o CPF do cleinte que deseja pedir o serviço: `)
+        let cpf = this.entrada.receberTexto(`Por favor informe o CPF do cliente que deseja pedir o serviço: `)
         let cliente = this.clientes.find((c) => c.getCpf.getValor === cpf);
 
         if (cliente) {
