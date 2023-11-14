@@ -6,48 +6,60 @@ import Servico from "./servico"
 import Telefone from "./telefone"
 
 export default class Cliente {
-    public nome: string
-    public nomeSocial: string
-    private cpf: CPF
-    private rgs: Array<RG>
-    private dataCadastro: Date
-    private telefones: Array<Telefone>
-    private produtosConsumidos: Array<Produto>
-    private servicosConsumidos: Array<Servico>
-    private pets: Array<Pet>
+    public nome: string;
+    public nomeSocial: string;
+    private cpf: CPF;
+    private rgs: Array<RG>;
+    private dataCadastro: Date;
+    private telefones: Array<Telefone>;
+    private produtosConsumidos: Array<Produto>;
+    private servicosConsumidos: Array<Servico>;
+    private pets: Array<Pet>;
     constructor(nome: string, nomeSocial: string, cpf: CPF) {
-        this.nome = nome
-        this.nomeSocial = nomeSocial
-        this.cpf = cpf
-        this.rgs = []
-        this.dataCadastro = new Date()
-        this.telefones = []
-        this.produtosConsumidos = []
-        this.servicosConsumidos = []
-        this.pets = []
-    }
+        this.nome = nome;
+        this.nomeSocial = nomeSocial;
+        this.cpf = cpf;
+        this.rgs = [];
+        this.dataCadastro = new Date();
+        this.telefones = [];
+        this.produtosConsumidos = [];
+        this.servicosConsumidos = [];
+        this.pets = [];
+    };
     public get getCpf(): CPF {
-        return this.cpf
-    }
+        return this.cpf;
+    };
     public get getRgs(): Array<RG> {
-        return this.rgs
-    }
+        return this.rgs;
+    };
     public get getDataCadastro(): Date {
-        return this.dataCadastro
-    }
+        return this.dataCadastro;
+    };
     public get getTelefones(): Array<Telefone> {
-        return this.telefones
-    }
+        return this.telefones;
+    };
     public get getProdutosConsumidos(): Array<Produto> {
-        return this.produtosConsumidos
-    }
+        return this.produtosConsumidos;
+    };
     public get getServicosConsumidos(): Array<Servico> {
-        return this.servicosConsumidos
-    }
+        return this.servicosConsumidos;
+    };
     public get getPets(): Array<Pet>{
         return this.pets
-    }
+    };
     public adicionarPet(pet: Pet): void {
         this.pets.push(pet);
-    }
-}
+    };
+    public adicionarProdutoConsumido(produto: Produto, quantidade: number): void {
+        for (let i = 0; i < quantidade; i++) {
+            this.produtosConsumidos.push(produto);
+        };
+        produto.incrementarQuantidadeConsumida(quantidade);
+    };
+    public adicionarServicoConsumido(servico: Servico, quantidade: number): void {
+        for (let i = 0; i < quantidade; i++) {
+            this.servicosConsumidos.push(servico);
+        };
+        servico.incrementarQuantidadeConsumida(quantidade);
+    };
+};
