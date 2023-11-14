@@ -109,44 +109,56 @@ while (execucao) {
             pedirServico.pedir();
             break;
         case 10:
+            let listagemServicosConsumidos = new ListagemValorProdutosServicosPorCliente(empresa.getProdutos, empresa.getServicos, empresa.getClientes);
+            listagemServicosConsumidos.listar();
+            break;
+        case 11:
             let cadastroPet = new CadastroPets(empresa.getPets, empresa.getClientes);
             cadastroPet.cadastrar();
             break;
-        case 11:
+        case 12:
             let listagemPets = new ListagemPets(empresa.getClientes);
             listagemPets.listar();
             break;
-        case 12:
+        case 13:
             let atualizarPet = new AtualizarPet(empresa.getClientes);
             atualizarPet.atualizar();
             break;
-        case 13:
+        case 14:
             let apagarPet = new ApagarPets(empresa.getClientes);
             apagarPet.apagar();
             break;
-        case 14:
+        case 15:
             let cadastroProduto = new CadastroProduto(empresa.getProdutos);
             cadastroProduto.cadastrar();
             break;
-        case 15:
+        case 16:
             let listagemProdutos = new ListagemProdutos(empresa.getProdutos);
             listagemProdutos.listar();
             break;
-        case 16:
+        case 17:
             let atualizarProduto = new AtualizarProduto(empresa.getProdutos);
             atualizarProduto.atualizar();
             break;
-        case 17:
+        case 18:
             let apagarProduto = new ApagarProdutos(empresa.getProdutos);
             apagarProduto.apagar();
             break;
-        case 18:
+        case 19:
             let pedirProduto = new PedirProduto(empresa.getProdutos, empresa.getClientes);
             pedirProduto.pedir();
             break;
-        case 19:
+        case 20:
+            let listagemProdutosConsumidos = new ListagemValorProdutosServicosPorCliente(empresa.getProdutos, empresa.getServicos, empresa.getClientes);
+            listagemProdutosConsumidos.listar();
+            break;
+        case 21:
             let listagem5Clientes = new ListagemValorProdutosServicosPorCliente(empresa.getProdutos, empresa.getServicos, empresa.getClientes);
             listagem5Clientes.listar();
+            break;
+        case 22:
+            let listagem10Clientes = new ListagemValorProdutosServicosPorCliente(empresa.getProdutos, empresa.getServicos, empresa.getClientes);
+            listagem10Clientes.listar();
             break;
         case 0:
             execucao = false
