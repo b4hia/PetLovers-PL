@@ -14,6 +14,10 @@ import ApagarPets from "../negocio/apagarPet";
 import AtualizarPet from "../negocio/atualizarPet";
 import ListagemPets from "../negocio/listagemPets";
 import ListagemValorProdutosServicosPorCliente from "../negocio/listagem5Clientes";
+import CadastroProduto from "../negocio/cadastroProduto";
+import ListagemProdutos from "../negocio/listagemProduto";
+import AtualizarProduto from "../negocio/atualizarProduto";
+import ApagarProdutos from "../negocio/apagarProduto";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
 let empresa = new Empresa()
@@ -115,8 +119,24 @@ while (execucao) {
             let apagarPet = new ApagarPets(empresa.getClientes);
             apagarPet.apagar();
             break;
+        case 14:
+            let cadastroProduto = new CadastroProduto(empresa.getProdutos);
+            cadastroProduto.cadastrar();
+            break;
+        case 15:
+            let listagemProdutos = new ListagemProdutos(empresa.getProdutos);
+            listagemProdutos.listar();
+            break;
+        case 16:
+            let atualizarProduto = new AtualizarProduto(empresa.getProdutos);
+            atualizarProduto.atualizar();
+            break;
+        case 17:
+            let apagarProduto = new ApagarProdutos(empresa.getProdutos);
+            apagarProduto.apagar();
+            break;
         case 18:
-            let listagem5Clientes = new ListagemValorProdutosServicosPorCliente(empresa.getClientes, empresa.getProdutos, empresa.getServicos);
+            let listagem5Clientes = new ListagemValorProdutosServicosPorCliente(empresa.getProdutos, empresa.getServicos, empresa.getClientes);
             listagem5Clientes.listar();
             break;
         case 0:
