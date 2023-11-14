@@ -12,6 +12,8 @@ import ApagarCliente from "../negocio/apagarCliente";
 import PedirServico from "../negocio/pedirServico";
 import CadastroPets from "../negocio/cadastroPet";
 import ApagarPets from "../negocio/apagarPet";
+import AtualizarPet from "../negocio/atualizarPet";
+import ListagemPets from "../negocio/listagemPets";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
 let empresa = new Empresa()
@@ -34,7 +36,9 @@ while (execucao) {
 
     //Pets
     console.log(`10 - Cadastrar Pet`);
-    console.log(`11 - Apagar Pet`);
+    console.log(`11 - Listar todos os Pets`);
+    console.log(`12 - Atualizar Pet`);
+    console.log(`13 - Apagar Pet`);
     
     
     console.log(`0 - Sair`);
@@ -84,13 +88,23 @@ while (execucao) {
             cadastroPet.cadastrar();
             break;
         case 11:
+            let listagemPets = new ListagemPets(empresa.getClientes);
+            listagemPets.listar();
+            break;
+        case 12:
+            let atualizarPet = new AtualizarPet(empresa.getClientes);
+            atualizarPet.atualizar();
+            break;
+        case 13:
             let apagarPet = new ApagarPets(empresa.getClientes);
             apagarPet.apagar();
             break;
+
         case 0:
             execucao = false
             console.log(`Até mais`)
             break;
+            
         default:
             console.log(`Operação não entendida :(`)
     }

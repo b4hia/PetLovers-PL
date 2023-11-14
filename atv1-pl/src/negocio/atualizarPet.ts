@@ -4,7 +4,7 @@ import CPF from "../modelo/cpf";
 import Pet from "../modelo/pet";
 import Atualizar from "./atualizar";
 
-export default class atualizarPet extends Atualizar {
+export default class AtualizarPet extends Atualizar {
     private clientes: Array<Cliente>;
     private entrada: Entrada;
 
@@ -64,10 +64,10 @@ export default class atualizarPet extends Atualizar {
 };
 
 // Testes
-let clientes = [new Cliente("Wellington", "Wellington", new CPF("12345678912", new Date())), new Cliente("Wellington", "Wellington", new CPF("12345678913", new Date())), new Cliente("Wellington", "Wellington", new CPF("12345678914", new Date())), new Cliente("Wellington", "Wellington", new CPF("12345678915", new Date()))]
+// let clientes = [new Cliente("Wellington", "Wellington", new CPF("12345678912", new Date())), new Cliente("Wellington", "Wellington", new CPF("12345678913", new Date())), new Cliente("Wellington", "Wellington", new CPF("12345678914", new Date())), new Cliente("Wellington", "Wellington", new CPF("12345678915", new Date()))]
 
-clientes[2].adicionarPet(new Pet("Luna", "Shitzu", "Femea", "Cachorro"));
-clientes[3].adicionarPet(new Pet("Luna", "Shitzu", "Femea", "Cachorro"));
-clientes[0].adicionarPet(new Pet("Luna", "Shitzu", "Femea", "Cachorro"));
+// clientes[2].adicionarPet(new Pet("Luna", "Shitzu", "Femea", "Cachorro"));
+// clientes[3].adicionarPet(new Pet("Luna", "Shitzu", "Femea", "Cachorro"));
+// clientes[0].adicionarPet(new Pet("Luna", "Shitzu", "Femea", "Cachorro"));
 
-new atualizarPet(clientes, new Entrada()).atualizar();
+// new AtualizarPet(clientes, new Entrada()).atualizar();
