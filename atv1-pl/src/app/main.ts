@@ -116,7 +116,7 @@ while (execucao) {
             apagarPet.apagar();
             break;
         case 18:
-            let listagem5Clientes = new ListagemValorProdutosServicosPorCliente(empresa.getClientes, empresa.getProdutos, empresa.getServicos);
+            let listagem5Clientes = new ListagemValorProdutosServicosPorCliente(empresa.getProdutos, empresa.getServicos, empresa.getClientes);
             listagem5Clientes.listar();
             break;
         case 0:
