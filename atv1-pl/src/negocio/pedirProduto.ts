@@ -21,12 +21,13 @@ export default class PedirProduto {
         let cliente = this.clientes.find((c) => c.getCpf.getValor === cpf);
 
         if (cliente) {
-            let nome = this.entrada.receberTexto(`Por favor informe o nome do serviço: `);
+            let nome = this.entrada.receberTexto(`Por favor informe o nome do produto: `);
 
             let produto = this.produtos.find((c) => c.getNome() === nome);
 
             if (produto) {
-                cliente.getServicosConsumidos.push(produto);
+                let quantidade = this.entrada.receberNumero(`Por favor informe a quantidade que deseja pedir: `);
+                cliente.adicionarProdutoConsumido(produto, quantidade);
                 console.log(`\nProduto concluído :)\n`);
             } else {
                 console.log(`\nProduto não encontrado :(`)
