@@ -9,11 +9,11 @@ export default class Servico {
         this.quantidadeConsumida = 0;
     }
 
-    public getNome(): string {
+    public get getNome(): string {
         return this.nome;
     }
 
-    public getPreco(): number {
+    public get getPreco(): number {
         return this.preco;
     }
 

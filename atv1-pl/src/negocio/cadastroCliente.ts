@@ -33,7 +33,7 @@ export default class CadastroCliente extends Cadastro {
         let dataEmissaoRg = new Date(anoRg, mesRg, diaRg)
         let rg = new RG(valorRg, dataEmissaoRg);
 
-        let cliente = new Cliente(nome, nomeSocial, cpf, dataEmissao, rg, dataEmissaoRg);
+        let cliente = new Cliente(nome, nomeSocial, cpf, rg);
         this.clientes.push(cliente)
         console.log(`\nCadastro concluído :)\n`);
     }

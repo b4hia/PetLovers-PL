@@ -13,7 +13,7 @@ export default class ApagarProdutos extends Apagar {
     }
     public apagar(): void {
         this.produtos.forEach(produto => {
-            console.log(`[${this.produtos.indexOf(produto)}] Nome: ${produto.getNome()} | Preço: ${produto.getPreco()}`);
+            console.log(`[${this.produtos.indexOf(produto)}] Nome: ${produto.getNome} | Preço: ${produto.getPreco}`);
         });
         let indexProd = this.entrada.receberNumero(`Por favor, informe o índice do produto que deseja apagar: `);
         this.produtos.splice(indexProd, 1);
@@ -23,7 +23,7 @@ export default class ApagarProdutos extends Apagar {
             console.log(`Nenhum`);
         } else {
             this.produtos.forEach(produto => {
-                console.log(`Nome: ${produto.getNome()} | Preço: ${produto.getPreco()}`);
+                console.log(`Nome: ${produto.getNome} | Preço: ${produto.getPreco}`);
             });
         };
     };

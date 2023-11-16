@@ -11,20 +11,16 @@ export default class Cliente {
     private cpf: CPF;
     private rgs: Array<RG>;
     private dataCadastro: Date;
-    private dataEmissaoCPF: Date;
-    private dataEmissaoRG: Date;
     private telefones: Array<Telefone>;
     private produtosConsumidos: Array<Produto>;
     private servicosConsumidos: Array<Servico>;
     private pets: Array<Pet>;
-    constructor(nome: string, nomeSocial: string, cpf: CPF, dataEmissaoCPF: Date, rg: RG, dataEmissaoRG: Date) {
+    constructor(nome: string, nomeSocial: string, cpf: CPF, rg: RG) {
         this.nome = nome;
         this.nomeSocial = nomeSocial;
         this.cpf = cpf;
         this.rgs = [];
         this.dataCadastro = new Date();
-        this.dataEmissaoCPF = dataEmissaoCPF
-        this.dataEmissaoRG = dataEmissaoRG
         this.telefones = [];
         this.produtosConsumidos = [];
         this.servicosConsumidos = [];
@@ -36,12 +32,6 @@ export default class Cliente {
     public get getRgs(): Array<RG> {
         return this.rgs;
     };
-    public get getDataEmissaoCPF(): Date {
-        return this.dataEmissaoCPF
-    }
-    public get getDataEmissaoRG(): Date {
-        return this.dataEmissaoRG
-    }
     public get getDataCadastro(): Date {
         return this.dataCadastro;
     };

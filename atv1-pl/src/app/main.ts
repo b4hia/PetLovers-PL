@@ -25,17 +25,18 @@ import Pet from "../modelo/pet";
 import Listagem10Clientes from "../negocio/listagem10Clientes";
 import ListagemProdutoPorCPF from "../negocio/listagemProdutoConsumido";
 import ListagemServicoPorCPF from "../negocio/listagemServicoConsumido";
+import RG from "../modelo/rg";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
 let empresa = new Empresa()
 let execucao = true
 
-empresa.getClientes.push(new Cliente("João", "Jaoa", new CPF("12345678910", new Date())))
-empresa.getClientes.push(new Cliente("Maria", "Maria", new CPF("12345678911", new Date())))
-empresa.getClientes.push(new Cliente("José", "José", new CPF("12345678912", new Date())))
-empresa.getClientes.push(new Cliente("Pedro", "Pedro", new CPF("12345678913", new Date())))
-empresa.getClientes.push(new Cliente("Ana", "Ana", new CPF("12345678914", new Date())))
-empresa.getClientes.push(new Cliente("Paulo", "Paulo", new CPF("12345678915", new Date())))
+empresa.getClientes.push(new Cliente("João", "Jaoa", new CPF("12345678910", new Date()), new RG("12345678910", new Date())))
+empresa.getClientes.push(new Cliente("Maria", "Maria", new CPF("12345678911", new Date()), new RG("12345678911", new Date())))
+empresa.getClientes.push(new Cliente("José", "José", new CPF("12345678912", new Date()), new RG("12345678912", new Date())))
+empresa.getClientes.push(new Cliente("Pedro", "Pedro", new CPF("12345678913", new Date()), new RG("12345678913", new Date())))
+empresa.getClientes.push(new Cliente("Ana", "Ana", new CPF("12345678914", new Date()), new RG("12345678914", new Date())))
+empresa.getClientes.push(new Cliente("Paulo", "Paulo", new CPF("12345678915", new Date()), new RG("12345678915", new Date())))
 empresa.getClientes[0].getPets.push(new Pet("Lulu", "SRD", "F", "Cachorro"))
 empresa.getClientes[0].getPets.push(new Pet("Lala", "SRD", "F", "Cachorro"))
 empresa.getClientes[1].getPets.push(new Pet("Lulu", "SRD", "F", "Cachorro"))
