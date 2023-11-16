@@ -87,12 +87,11 @@ while (execucao) {
     console.log(`21 - Listar os 5 clientes que mais consumiram produtos ou serviços por valor`);
     console.log(`22 - Listar os 10 clientes que mais consumiram produtos ou serviços por quantidade`);
     console.log(`23 - Listar os Serviços ou Produtos mais consumidos`);
-    
-    
-    
-    
+    console.log(`24 - Listar os serviços ou produtos mais consumidos por tipo e raça de pets.`);
     
     console.log(`0 - Sair`);
+
+
 
     let entrada = new Entrada()
     let opcao = entrada.receberNumero(`Por favor, escolha uma opção: `)
@@ -185,6 +184,9 @@ while (execucao) {
         case 22:
             let listagem10Clientes = new Listagem10Clientes(empresa.getClientes);
             listagem10Clientes.listar();
+            break;
+        case 24:
+            
             break;
         case 0:
             execucao = false
