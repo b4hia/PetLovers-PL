@@ -25,6 +25,7 @@ import Pet from "../modelo/pet";
 import Listagem10Clientes from "../negocio/listagem10Clientes";
 import ListagemProdutoPorCPF from "../negocio/listagemProdutoConsumido";
 import ListagemServicoPorCPF from "../negocio/listagemServicoConsumido";
+import RG from "../modelo/rg";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
 let empresa = new Empresa()

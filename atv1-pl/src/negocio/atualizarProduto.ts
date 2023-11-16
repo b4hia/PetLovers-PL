@@ -12,7 +12,7 @@ export default class AtualizarProduto extends Atualizar {
     };
     public atualizar(): void {
         this.produtos.forEach(produto => {
-            console.log(`[${this.produtos.indexOf(produto)}] Nome: ${produto.getNome()} | Preço: ${produto.getPreco()}`);
+            console.log(`[${this.produtos.indexOf(produto)}] Nome: ${produto.getNome} | Preço: ${produto.getPreco}`);
         });
         let indexProd = this.entrada.receberNumero(`Por favor, informe o índice do produto que deseja atualizar: `);
         let nome = this.entrada.receberTexto(`Por favor informe o novo nome do produto: `);
