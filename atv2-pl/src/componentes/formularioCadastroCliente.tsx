@@ -2,6 +2,7 @@ import { Component } from "react";
 
 type props = {
     tema: string
+    azul: string
     seletorView: Function
 }
 
@@ -10,6 +11,7 @@ export default class FormularioCadastroCliente extends Component<props> {
         super(props)
     };
     render() {
+        let azul = this.props.azul
         let tema = this.props.tema
         return (
             <div className="container-fluid">
@@ -40,12 +42,12 @@ export default class FormularioCadastroCliente extends Component<props> {
                         <div className="row">
                             <div className="col">
                                 <div className="input-group mb-3">
-                                    <button className="btn btn-outline-secondary" type="button" style={{ background: tema }}>Cadastrar</button>
+                                    <button className="btn btn-outline" type="button" style={{ background: azul }}>Finalizar Cadastro de Cliente</button>
                                 </div>
                             </div>
                             <div className="col">
-                                <div className="input-group mb-7">
-                                    <button className="btn btn-outline-secondary" type="button" style={{ background: tema }} onClick={(e) => this.props.seletorView("Cadastrar Pet", e)}>Cadastrar Pet</button>
+                                <div className="input-group mb-5">
+                                    <button className="btn btn-outline" type="button" style={{ background: azul }} onClick={(e) => this.props.seletorView("Cadastrar Pet", e)}>Cadastrar um Pet</button>
                                 </div>
                             </div>
                         </div>

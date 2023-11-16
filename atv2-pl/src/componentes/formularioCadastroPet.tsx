@@ -1,5 +1,5 @@
 import { Component } from "react";
-import App from "./roteador";
+
 
 type props = {
     tema: string
@@ -44,7 +44,7 @@ export default class FormularioCadastroPet extends Component<props> {
                     </div>
                     <div className="container text-center">
                         <div className="input-group mb-5">
-                            <button className="btn btn-outline-secondary" type="button" style={{ background: tema }}>Cadastrar</button>
+                            <button className="btn btn-outline-secondary" type="button" style={{ background: tema }}>Cadastrar Pet</button>
                         </div>    
                     </div>
                 </form>

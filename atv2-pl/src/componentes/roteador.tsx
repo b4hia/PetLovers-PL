@@ -29,12 +29,12 @@ export default class Roteador extends Component<{}, state>{
     }
 
     render() {
-        let barraNavegacao = <BarraNavegacao seletorView={this.selecionarView} tema="#e3f2fd" botoes={['Clientes', 'Cadastros', 'Produtos', 'Serviços']} />
+        let barraNavegacao = <BarraNavegacao seletorView={this.selecionarView} tema="#87c7fd" botoes={['Clientes', 'Cadastros', 'Produtos', 'Serviços']} />
         if (this.state.tela === 'Clientes') {
             return (
                 <>
                     {barraNavegacao}
-                    <ListaCliente tema="#e3f2fd" />
+                    <ListaCliente tema="#5eb4fc" red="#fc6464" />
                 </>
             )
         }
@@ -42,7 +42,7 @@ export default class Roteador extends Component<{}, state>{
             return (
                 <>
                     {barraNavegacao}
-                    <FormularioCadastroCliente tema="#e3f2fd" seletorView = {this.selecionarView} />
+                    <FormularioCadastroCliente tema="#5eb4fc" azul="#5eb4fc" seletorView = {this.selecionarView} />
                 </>
             )
 
@@ -50,7 +50,7 @@ export default class Roteador extends Component<{}, state>{
             return (
                 <>
                     {barraNavegacao}
-                    <Produtos tema="#e3f2fd" />
+                    <Produtos tema="#5eb4fc" red="#fc6464" />
                 </>
             )
             }
@@ -58,14 +58,14 @@ export default class Roteador extends Component<{}, state>{
             return (
                 <>
                     {barraNavegacao}
-                    <FormularioCadastroPet tema="#e3f2fd" />
+                    <FormularioCadastroPet tema="#5eb4fc" />
                 </>
             )
         } else {
             return (
                 <>
                     {barraNavegacao}
-                    <Servicos tema="#e3f2fd" />
+                    <Servicos tema="#5eb4fc" red="#fc6464" />
                 </>
             )
         }
