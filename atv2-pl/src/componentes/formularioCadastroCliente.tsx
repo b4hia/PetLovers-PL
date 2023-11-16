@@ -17,6 +17,18 @@ export default class FormularioCadastroCliente extends Component<props> {
                     <div className="input-group mb-3">
                         <input type="text" className="form-control" placeholder="Nome social" aria-label="Nome social" aria-describedby="basic-addon1" />
                     </div>
+                    <div className="input-group mb-3"> 
+                        <input type="text" className="form-control" placeholder="RG" aria-label="RG"/>
+                        <span className="input-group-text">data de Emissão</span>
+                        <input type="date" className="form-control" placeholder="Data de Emissão" aria-label="Data de Emissão"/>
+                    </div>
+
+                    <div className="input-group mb-3"> 
+                        <input type="text" className="form-control" placeholder="CPF" aria-label="CPF"/>
+                        <span className="input-group-text">data de Emissão</span>
+                        <input type="date" className="form-control" placeholder="Data de Emissão" aria-label="Data de Emissão"/>
+                    </div>
+
                     <div className="input-group mb-3">
                         <span className="input-group-text" id="basic-addon1" style={{ background: tema }}>@</span>
                         <input type="text" className="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon1" />
