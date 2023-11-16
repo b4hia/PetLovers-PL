@@ -23,7 +23,7 @@ export default class PedirProduto {
         if (cliente) {
             let nome = this.entrada.receberTexto(`Por favor informe o nome do produto: `);
 
-            let produto = this.produtos.find((c) => c.getNome() === nome);
+            let produto = this.produtos.find((c) => c.getNome === nome);
 
             if (produto) {
                 let quantidade = this.entrada.receberNumero(`Por favor informe a quantidade que deseja pedir: `);

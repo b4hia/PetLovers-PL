@@ -25,13 +25,13 @@ export default class ListagemValorProdutosServicosPorCliente extends Listagem {
 
         // Consumo de Produtos
         this.clientes.forEach(cliente => {
-            const valorProdutos = cliente.getProdutosConsumidos.reduce((total, produto) => total + produto.getPreco(), 0);
+            const valorProdutos = cliente.getProdutosConsumidos.reduce((total, produto) => total + produto.getPreco, 0);
             clientesValor.set(cliente, valorProdutos);
         });
 
         // Cosumo de Serviços
         this.clientes.forEach(cliente => {
-            const valorServicos = cliente.getServicosConsumidos.reduce((total, servico) => total + servico.getPreco(), 0);
+            const valorServicos = cliente.getServicosConsumidos.reduce((total, servico) => total + servico.getPreco, 0);
             if (clientesValor.has(cliente)) {
                 clientesValor.set(cliente, clientesValor.get(cliente)! + valorServicos);
             } else {

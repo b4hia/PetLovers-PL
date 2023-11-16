@@ -23,7 +23,7 @@ export default class PedirServico {
         if (cliente) {
             let nome = this.entrada.receberTexto(`Por favor informe o nome do serviço: `);
 
-            let servico = this.servicos.find((c) => c.getNome() === nome);
+            let servico = this.servicos.find((c) => c.getNome === nome);
 
             if (servico) {
                 let quantidade = this.entrada.receberNumero(`Por favor informe a quantidade que deseja pedir: `);

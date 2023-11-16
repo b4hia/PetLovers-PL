@@ -16,7 +16,7 @@ export default class AtualizarServico extends Atualizar{
         console.log(`\nInício da Atualização do cadastro do serviço`);
         let nome = this.entrada.receberTexto(`Por favor, informe o nome do serviço a ser atualizado: `);
 
-        let servico = this.servicos.find((c) => c.getNome() === nome);
+        let servico = this.servicos.find((c) => c.getNome === nome);
 
         if (servico) {
             let nome = this.entrada.receberTexto(`Por favor, informe o novo nome do serviço: `);
