@@ -21,22 +21,29 @@ export default class PedirServico {
         let cliente = this.clientes.find((c) => c.getCpf.getValor === cpf);
 
         if (cliente) {
-            let nome = this.entrada.receberTexto(`Por favor informe o nome do serviço: `);
+            cliente?.getPets.forEach((pet) => {
+                console.log(`[${cliente?.getPets.indexOf(pet)}] ${pet.getNome}`);
+            });
 
-            let servico = this.servicos.find((c) => c.getNome === nome);
+            let indexPet = this.entrada.receberNumero(`Por favor informe o pet que vai consumir o serviço: `);
+            let pet = cliente?.getPets.find((p) => cliente?.getPets.indexOf(p) === indexPet);
+            if (pet) {
+                let nome = this.entrada.receberTexto(`Por favor informe o nome do serviço: `);
+                let servico = this.servicos.find((c) => c.getNome === nome);
 
-            if (servico) {
-                let quantidade = this.entrada.receberNumero(`Por favor informe a quantidade que deseja pedir: `);
-                cliente.adicionarServicoConsumido(servico, quantidade);
-                console.log(`\nServiço concluído :)\n`);
+                if (servico) {
+                    let quantidade = this.entrada.receberNumero(`Por favor informe a quantidade que deseja pedir: `);
+                    cliente.adicionarProdutoConsumido(servico, quantidade);
+                    pet.consumirProduto(servico, quantidade);
+                    console.log(`\nServiço concluído :)\n`);
+                } else {
+                    console.log(`\nServiço não encontrado :(`);
+                };
             } else {
-                console.log(`\nServiço não encontrado :(`);
-            }
-
+                console.log(`\nPet não encontrado :(`);
+            };
         } else {
             console.log(`Cliente não encontrado :(\n`);
-        }
-
-    }
-}
-
+        };
+    };
+};

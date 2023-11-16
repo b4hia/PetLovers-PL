@@ -21,22 +21,45 @@ export default class PedirProduto {
         let cliente = this.clientes.find((c) => c.getCpf.getValor === cpf);
 
         if (cliente) {
-            let nome = this.entrada.receberTexto(`Por favor informe o nome do produto: `);
+            let a = this.entrada.receberNumero(`Deseja vincular o pet ao pedido? \n[1] Sim \n[2] Não \n`);
+            if (a == 1) {
+                cliente?.getPets.forEach((pet) => {
+                    console.log(`[${cliente?.getPets.indexOf(pet)}] ${pet.getNome}`);
+                });
+    
+                let indexPet = this.entrada.receberNumero(`Por favor informe o pet que vai consumir o produto: `);
+                let pet = cliente?.getPets.find((p) => cliente?.getPets.indexOf(p) === indexPet);
+                if (pet) {
+                    let nome = this.entrada.receberTexto(`Por favor informe o nome do produto: `);
+                    let produto = this.produtos.find((c) => c.getNome === nome);
 
-            let produto = this.produtos.find((c) => c.getNome === nome);
+                    if (produto) {
+                        let quantidade = this.entrada.receberNumero(`Por favor informe a quantidade que deseja pedir: `);
+                        cliente.adicionarProdutoConsumido(produto, quantidade);
+                        pet.consumirProduto(produto, quantidade);
+                        console.log(`\nProduto concluído :)\n`);
+                    } else {
+                        console.log(`\nProduto não encontrado :(`)
+                    }
+                } else {
+                    console.log(`\nPet não encontrado :(`)
+                };
+            } else if (a == 2) {
+                let nome = this.entrada.receberTexto(`Por favor informe o nome do produto: `);
+                let produto = this.produtos.find((c) => c.getNome === nome);
 
-            if (produto) {
-                let quantidade = this.entrada.receberNumero(`Por favor informe a quantidade que deseja pedir: `);
-                cliente.adicionarProdutoConsumido(produto, quantidade);
-                console.log(`\nProduto concluído :)\n`);
+                if (produto) {
+                    let quantidade = this.entrada.receberNumero(`Por favor informe a quantidade que deseja pedir: `);
+                    cliente.adicionarProdutoConsumido(produto, quantidade);
+                    console.log(`\nProduto concluído :)\n`);
+                } else {
+                    console.log(`\nProduto não encontrado :(`)
+                };
             } else {
-                console.log(`\nProduto não encontrado :(`)
-            }
-
+                console.log(`\nOpção inválido :(`)
+            };
         } else {
             console.log(`Cliente não encontrado :(\n`);
-        }
-
-    }
-}
-
+        };
+    };
+};
