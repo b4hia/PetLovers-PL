@@ -69,19 +69,19 @@ Para que a execução do sistema e seu uso sejam efetivados, tenha instalado as 
 ## 🌱 Backlog do Produto *Atividade1*
 
  #### Épicos (Requisitos Funcionais) 
-| CÓDIGO | DESCRIÇÃO |
-|:------:|:----------:|
-|   REQ_1  | CRUD (Create, Read, Update e Delete) de clientes e seus respectivos Pets. 
-|   REQ_2  | CRUD de produtos e serviços.
-|   REQ_3  | Registro de consumo dos produtos ou serviços que cada cliente adquiriu. 
+| CÓDIGO | DESCRIÇÃO | STATUS |
+|:------:|:----------:|:----:|
+|   REQ_1  | CRUD (Create, Read, Update e Delete) de clientes e seus respectivos Pets. | 🆗
+|   REQ_2  | CRUD de produtos e serviços. | 🆗
+|   REQ_3  | Registro de consumo dos produtos ou serviços que cada cliente adquiriu. | 🆗
 
  #### Especificação das Listagens
-| CÓDIGO | DESCRIÇÃO |
-|:------:|:----------:|
-|   LIST_1    | Listagem dos 10 clientes que mais consumiram produtos ou serviços, em quantidade, não em valor.
-|   LIST_2    | Listagem geral dos serviços ou produtos mais consumidos.
-|   LIST_3    | Listagem dos serviços ou produtos mais consumidos por tipo e raça de pets.
-|   LIST_4    | Listagem dos 5 clientes que mais consumiram em valor, não em quantidade.
+| CÓDIGO | DESCRIÇÃO | STATUS |
+|:------:|:----------:|:----:|
+|   LIST_1    | Listagem dos 10 clientes que mais consumiram produtos ou serviços, em quantidade, não em valor. | 🆗
+|   LIST_2    | Listagem geral dos serviços ou produtos mais consumidos. | 🆗
+|   LIST_3    | Listagem dos serviços ou produtos mais consumidos por tipo e raça de pets. | ⌛
+|   LIST_4    | Listagem dos 5 clientes que mais consumiram em valor, não em quantidade. | 🆗
 
 <br>
 
@@ -159,13 +159,13 @@ node out/app/main.js
 ## 🌱 Backlog do Produto *Atividade2*
 
  #### Épicos (Requisitos) 
-| CÓDIGO | DESCRIÇÃO |
-|:------:|:----------:|
-|   REQ_1  | Desenvolver todas as interfaces HTML. 
-|   REQ_2  | Não é nescessário integração com o back-end.
-|   REQ_3  | Utilizar as bibliotecas Bootstrap e React. 
-|   REQ_4  | Todas os componentes criados com react devem ser componentes de classe.
-|   REQ_5  | O Design precisa ser responsivo 
+| CÓDIGO | DESCRIÇÃO | STATUS |
+|:------:|:----------:|:----:|
+|   REQ_1  | Desenvolver todas as interfaces HTML. | ⌛
+|   REQ_2  | Não é nescessário integração com o back-end. | ⌛
+|   REQ_3  | Utilizar as bibliotecas Bootstrap e React. | ⌛
+|   REQ_4  | Todas os componentes criados com react devem ser componentes de classe. | ⌛
+|   REQ_5  | O Design precisa ser responsivo. | ⌛
 
 
 → [Voltar ao topo](#topo)
