@@ -2,7 +2,7 @@ import Entrada from "../io/entrada"
 import Cliente from "../modelo/cliente"
 import CPF from "../modelo/cpf"
 import Cadastro from "./cadastro"
-
+import RG from "../modelo/rg"
 export default class CadastroCliente extends Cadastro {
     private clientes: Array<Cliente>
     private entrada: Entrada
@@ -23,7 +23,17 @@ export default class CadastroCliente extends Cadastro {
         let dia = new Number(partesData[0].valueOf()).valueOf()
         let dataEmissao = new Date(ano, mes, dia)
         let cpf = new CPF(valor, dataEmissao);
-        let cliente = new Cliente(nome, nomeSocial, cpf);
+
+        let valorRg = this.entrada.receberTexto(`Por favor informe o número do rg: `);
+        let dataEmissaorg = this.entrada.receberTexto(`Por favor informe a data de emissão do rg, no padrão dd/mm/yyyy: `);
+        let partesDataRg = dataEmissaorg.split('/')
+        let anoRg = new Number(partesDataRg[2].valueOf()).valueOf()
+        let mesRg = new Number(partesDataRg[1].valueOf()).valueOf()
+        let diaRg = new Number(partesDataRg[0].valueOf()).valueOf()
+        let dataEmissaoRg = new Date(anoRg, mesRg, diaRg)
+        let rg = new RG(valorRg, dataEmissaoRg);
+
+        let cliente = new Cliente(nome, nomeSocial, cpf, dataEmissao, rg, dataEmissaoRg);
         this.clientes.push(cliente)
         console.log(`\nCadastro concluído :)\n`);
     }
