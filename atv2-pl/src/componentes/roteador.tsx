@@ -4,10 +4,12 @@ import ListaCliente from "./listaClientes";
 import FormularioCadastroCliente from "./formularioCadastroCliente";
 import Produtos from "./listaProdutos";
 import Servicos from "./listaServiços";
+import FormularioCadastroPet from "./formularioCadastroPet";
 
 type state = {
     tela: string
 }
+
 
 export default class Roteador extends Component<{}, state>{
     constructor(props: {} | Readonly<{}>) {
@@ -40,7 +42,7 @@ export default class Roteador extends Component<{}, state>{
             return (
                 <>
                     {barraNavegacao}
-                    <FormularioCadastroCliente tema="#e3f2fd" />
+                    <FormularioCadastroCliente tema="#e3f2fd" seletorView = {this.selecionarView} />
                 </>
             )
 
@@ -49,6 +51,14 @@ export default class Roteador extends Component<{}, state>{
                 <>
                     {barraNavegacao}
                     <Produtos tema="#e3f2fd" />
+                </>
+            )
+            }
+        else if (this.state.tela === 'Cadastrar Pet') {
+            return (
+                <>
+                    {barraNavegacao}
+                    <FormularioCadastroPet tema="#e3f2fd" />
                 </>
             )
         } else {

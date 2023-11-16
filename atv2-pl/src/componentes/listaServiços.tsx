@@ -26,28 +26,28 @@ export default class Servicos extends Component<props>{
                 <div className="list-group">
                         <a href="#" className="list-group-item list-group-item-action">Serviço 1
                         <div className="input-group mb-3">
-                            <a href="!!"><button className="input-group-text"><i className="bi bi-trash" style={{ fontSize: 50 }}></i></button></a>
-                            <a href="!!"><button className="input-group-text"><i className="bi bi-pencil" style={{ fontSize: 50 }}></i></button></a>
+                            <a href="!!"><button className="input-group-text"><i className="bi bi-trash" style={{ fontSize: 20 }}></i></button></a>
+                            <a href="!!"><button className="input-group-text"><i className="bi bi-pencil" style={{ fontSize: 20 }}></i></button></a>
                         </div></a>
                         <a href="#" className="list-group-item list-group-item-action">Serviço 2
                         <div className="input-group mb-3">
-                            <a href="!!"><button className="input-group-text"><i className="bi bi-trash" style={{ fontSize: 50 }}></i></button></a>
-                            <a href="!!"><button className="input-group-text"><i className="bi bi-pencil" style={{ fontSize: 50 }}></i></button></a>
+                            <a href="!!"><button className="input-group-text"><i className="bi bi-trash" style={{ fontSize: 20 }}></i></button></a>
+                            <a href="!!"><button className="input-group-text"><i className="bi bi-pencil" style={{ fontSize: 20 }}></i></button></a>
                         </div></a>
                         <a href="#" className="list-group-item list-group-item-action">Serviço 3
                         <div className="input-group mb-3">
-                            <a href="!!"><button className="input-group-text"><i className="bi bi-trash" style={{ fontSize: 50 }}></i></button></a>
-                            <a href="!!"><button className="input-group-text"><i className="bi bi-pencil" style={{ fontSize: 50 }}></i></button></a>
+                            <a href="!!"><button className="input-group-text"><i className="bi bi-trash" style={{ fontSize: 20 }}></i></button></a>
+                            <a href="!!"><button className="input-group-text"><i className="bi bi-pencil" style={{ fontSize: 20 }}></i></button></a>
                         </div></a>
                         <a href="#" className="list-group-item list-group-item-action">Serviço 4
                         <div className="input-group mb-3">
-                            <a href="!!"><button className="input-group-text"><i className="bi bi-trash" style={{ fontSize: 50 }}></i></button></a>
-                            <a href="!!"><button className="input-group-text"><i className="bi bi-pencil" style={{ fontSize: 50 }}></i></button></a>
+                            <a href="!!"><button className="input-group-text"><i className="bi bi-trash" style={{ fontSize: 20 }}></i></button></a>
+                            <a href="!!"><button className="input-group-text"><i className="bi bi-pencil" style={{ fontSize: 20 }}></i></button></a>
                         </div></a>
                         <a href="#" className="list-group-item list-group-item-action">Serviço 5
                         <div className="input-group mb-3">
-                            <a href="!!"><button className="input-group-text"><i className="bi bi-trash" style={{ fontSize: 50 }}></i></button></a>
-                            <a href="!!"><button className="input-group-text"><i className="bi bi-pencil" style={{ fontSize: 50 }}></i></button></a>
+                            <a href="!!"><button className="input-group-text"><i className="bi bi-trash" style={{ fontSize: 20 }}></i></button></a>
+                            <a href="!!"><button className="input-group-text"><i className="bi bi-pencil" style={{ fontSize: 20 }}></i></button></a>
                         </div></a>
             </div>
         </div>
