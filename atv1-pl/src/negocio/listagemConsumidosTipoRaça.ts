@@ -13,6 +13,12 @@ class Raca {
         this.servicosConsumidos = [];
     };
 
+    public get getRaca(): string { return this.raca };
+
+    public get getServicosConsumidos(): Array<Servico> { return this.servicosConsumidos };
+
+    public get getProdutosConsumidos(): Array<Produto> { return this.produtosConsumidos };
+
     consumirServico(servico: Servico, quantidade: number): void {
         for (let i = 0; i < quantidade; i++) {
             this.servicosConsumidos.push(servico);
@@ -37,6 +43,12 @@ class Tipo {
         this.servicosConsumidos = [];
     };
 
+    public get getTipo(): string { return this.tipo };
+
+    public get getServicosConsumidos(): Array<Servico> { return this.servicosConsumidos };
+
+    public get getProdutosConsumidos(): Array<Produto> { return this.produtosConsumidos };
+
     consumirServico(servico: Servico, quantidade: number): void {
         for (let i = 0; i < quantidade; i++) {
             this.servicosConsumidos.push(servico);
@@ -59,9 +71,11 @@ class ListagemConsumidosTipoRaça extends Listagem {
 
     public listar(): void {
         let racas: Array<Raca> = [];
+        let tipos: Array<Tipo> = [];
         this.clientes.forEach(cliente => {
             cliente.getPets.forEach(pet => {
-               racas.push(new Raca(pet.getRaca)); 
+                racas.push(new Raca(pet.getRaca));
+                tipos.push(new Tipo(pet.getTipo));
             });
         });
     };
