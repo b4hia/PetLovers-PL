@@ -5,6 +5,9 @@ import FormularioCadastroCliente from "./formularioCadastroCliente";
 import Produtos from "./listaProdutos";
 import Servicos from "./listaServiços";
 import FormularioCadastroPet from "./formularioCadastroPet";
+import FormularioBuscarTutor from "./formularioBuscarTutor";
+import FormularioAtualizarPet from "./formularioAtualizarPet";
+import Pagamento from "./pagamento";
 
 type state = {
     tela: string
@@ -34,7 +37,7 @@ export default class Roteador extends Component<{}, state>{
             return (
                 <>
                     {barraNavegacao}
-                    <ListaCliente tema="#5eb4fc" red="#fc6464" />
+                    <ListaCliente tema="#5eb4fc" red="#fc6464" seletorView = {this.selecionarView}/>
                 </>
             )
         }
@@ -61,7 +64,33 @@ export default class Roteador extends Component<{}, state>{
                     <FormularioCadastroPet tema="#5eb4fc" />
                 </>
             )
-        } else {
+        }
+        else if (this.state.tela === 'Buscar Tutor') {
+            return (
+                <>
+                    {barraNavegacao}
+                    <FormularioBuscarTutor tema="#5eb4fc" seletorView={this.selecionarView}/>
+                </>
+            )
+        }
+        else if (this.state.tela === 'Atualizar Pet') {
+            return (
+                <>
+                    {barraNavegacao}
+                    <FormularioAtualizarPet tema="#5eb4fc" red="#fc6464" />
+                </>
+            )
+        }
+        else if (this.state.tela === 'Pagamento') {
+            return (
+                <>
+                    {barraNavegacao}
+                    <Pagamento tema="#5eb4fc" red="#fc6464" />
+                </>
+            )
+        }
+         
+        else {
             return (
                 <>
                     {barraNavegacao}

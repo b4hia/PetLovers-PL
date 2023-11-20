@@ -1,18 +1,23 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { Component } from "react";
 
 type props = {
     tema: string
     red: string
+    seletorView: Function
 }
 
 export default class ListaCliente extends Component<props>{
+    constructor(props: props | Readonly<props>) {
+        super(props)
+    };
     render() {
         let red = this.props.red
         let tema = this.props.tema
         let green = '#00ff00'
         return (
             <div className="container-fluid">
+                <h5>Lista com todos os clientes</h5>
+                <hr />
                 <div className="list-group">
                     <div className="accordion" id="accordionExample">
                         <div className="accordion-item">
@@ -75,6 +80,9 @@ export default class ListaCliente extends Component<props>{
                                             <div className="col-md-1">
                                                 <label htmlFor="inputState" className="form-label">Quantidade</label>
                                                 <input type="number" className="form-control" placeholder="" aria-label="Quantidade"/>
+                                            </div>
+                                            <div className="col-md-1">
+                                                <button className="btn btn-outline" type="button" style={{ background: tema}} >Fazer Pedido</button>
                                             </div>
                                         </form>
                                     </div>
@@ -142,6 +150,9 @@ export default class ListaCliente extends Component<props>{
                                                 <label htmlFor="inputState" className="form-label">Quantidade</label>
                                                 <input type="number" className="form-control" placeholder="" aria-label="Quantidade"/>
                                             </div>
+                                            <div className="col-md-1">
+                                                <button className="btn btn-outline" type="button" style={{ background: tema}} >Fazer Pedido</button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -207,6 +218,9 @@ export default class ListaCliente extends Component<props>{
                                             <div className="col-md-1">
                                                 <label htmlFor="inputState" className="form-label">Quantidade</label>
                                                 <input type="number" className="form-control" placeholder="" aria-label="Quantidade"/>
+                                            </div>
+                                            <div className="col-md-1">
+                                                <button className="btn btn-outline" type="button" style={{ background: tema}} >Fazer Pedido</button>
                                             </div>
                                         </form>
                                     </div>
@@ -274,6 +288,9 @@ export default class ListaCliente extends Component<props>{
                                                 <label htmlFor="inputState" className="form-label">Quantidade</label>
                                                 <input type="number" className="form-control" placeholder="" aria-label="Quantidade"/>
                                             </div>
+                                            <div className="col-md-1">
+                                                <button className="btn btn-outline" type="button" style={{ background: tema}} >Fazer Pedido</button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -340,6 +357,9 @@ export default class ListaCliente extends Component<props>{
                                                 <label htmlFor="inputState" className="form-label">Quantidade</label>
                                                 <input type="number" className="form-control" placeholder="" aria-label="Quantidade"/>
                                             </div>
+                                            <div className="col-md-1">
+                                                <button className="btn btn-outline" type="button" style={{ background: tema}} >Fazer Pedido</button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -350,6 +370,19 @@ export default class ListaCliente extends Component<props>{
             </div>
         </div>
     </div>
+    <br />
+    <form className="row">
+        <div className="col">
+            <div className="input-group mb-5">
+                <button className="btn btn-outline" type="button" style={{ background: tema }} onClick={(e) => this.props.seletorView("Buscar Tutor", e)}>Atualizar/Editar um Pet</button>
+            </div>
+        </div>
+        <div className="col">
+            <div className="input-group mb-5">
+                <button className="btn btn-outline" type="button" style={{ background: tema }} onClick={(e) => this.props.seletorView("Pagamento", e)}>Ir para Pagamento</button>
+            </div>
+        </div>       
+    </form> 
 </div>
         )
     }
