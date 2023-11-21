@@ -13,6 +13,8 @@ export default class Servicos extends Component<props>{
         let green = '#00ff00'
         return (
             <div className="container-fluid">
+                <h5>Cadastro de Serviço</h5>
+                <hr />
                 <form>
                     <div className="input-group mb-3">
                         <input type="text" className="form-control" placeholder="Nome do Serviço" aria-label="Nome do Serviço" aria-describedby="basic-addon1" />
@@ -137,6 +139,15 @@ export default class Servicos extends Component<props>{
                             </div>
                         </div>
                     </div>
+                    <br />
+                    <h5>Serviços mais Consumidos em Quantidade</h5>
+                    <ul className="list-group">
+                        <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Serviço1</li>
+                        <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Serviço2</li>
+                        <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Serviço3</li>
+                        <li className="list-group-item">Serviço4</li>
+                        <li className="list-group-item">Serviço5</li>
+                    </ul>
                 </div>
             </div>
         )

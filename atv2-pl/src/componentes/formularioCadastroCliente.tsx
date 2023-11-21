@@ -15,6 +15,8 @@ export default class FormularioCadastroCliente extends Component<props> {
         let tema = this.props.tema
         return (
             <div className="container-fluid">
+                <h5>Cadastro de Cliente</h5>
+                <hr />
                 <form>
                     <div className="input-group mb-3">
                         <input type="text" className="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="basic-addon1" />
@@ -46,7 +48,7 @@ export default class FormularioCadastroCliente extends Component<props> {
                                 </div>
                             </div>
                             <div className="col">
-                                <div className="input-group mb-5">
+                                <div className="input-group mb-3">
                                     <button className="btn btn-outline" type="button" style={{ background: azul }} onClick={(e) => this.props.seletorView("Cadastrar Pet", e)}>Cadastrar um Pet</button>
                                 </div>
                             </div>

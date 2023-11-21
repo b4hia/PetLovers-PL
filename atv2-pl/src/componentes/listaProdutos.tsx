@@ -12,6 +12,8 @@ export default class Produtos extends Component<props>{
         let green = '#00ff00'
         return (
             <div className="container-fluid">
+                <h5>Cadastro de Produto</h5>
+                <hr />
                 <form>
                     <div className="input-group mb-3">
                         <input type="text" className="form-control" placeholder="Nome do Produto" aria-label="Nome do Produto" aria-describedby="basic-addon1" />
@@ -136,6 +138,15 @@ export default class Produtos extends Component<props>{
                             </div>
                         </div>
                     </div>
+                    <br />
+                    <h5>Produtos mais Consumidos em Quantidade</h5>
+                    <ul className="list-group">
+                        <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Produto1</li>
+                        <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Produto2</li>
+                        <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Produto3</li>
+                        <li className="list-group-item">Produto4</li>
+                        <li className="list-group-item">Produto5</li>
+                    </ul>
                 </div>
             </div>
         )
