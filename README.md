@@ -33,7 +33,7 @@ Para que a execução do sistema e seu uso sejam efetivados, tenha instalado as 
 
 <span id="atividades1">
 
-## Parte1 *Sistema CLI*
+## Parte1 *Sistema CLI* 1️⃣
 <p>
     <a href="#tec">Tecnologia</a> | 
     <a href="#backlog">Backlog</a> | 
@@ -119,7 +119,7 @@ node out/app/main.js
 
 <span id="atividades2">
   
-## Parte2 *Sistema com GUI*
+## Parte2 *Sistema com GUI* 2️⃣
   
 <p>
     <a href="#tec2">Tecnologia</a> | 
@@ -182,6 +182,82 @@ git clone https://github.com/b4hia/PetLovers-PL/atv2-pl.git
 - entre no clone 
 ~~~
 cd atv2-pl
+~~~
+
+- entre na pasta source 
+~~~
+cd src
+~~~
+
+- instale os pacotes
+~~~
+npm i
+~~~
+
+- rode a aplicação
+~~~
+npm start
+~~~
+
+<span id="atividades3">
+  
+## Parte3 *Incrementando Hooks ao Sistema* 3️⃣
+  
+<p>
+    <a href="#tec3">Tecnologia</a> | 
+    <a href="#backlog3">Backlog</a> | 
+    <a href="#manual3">Manual de Usuário</a> 
+</p>
+
+## :pushpin: Sobre o desafio
+  O objetivo é construir a mesma GUI, feita anteriormente com componentes de classe, mas agora com componentes de função.
+<br>
+
+> 🔗 **Link** <br>
+> - Documento de apoio da atividade2: [Clique para visualizar](https://github.com/b4hia/PetLovers-PL/tree/main/documents/atviii-pl.pdf)
+
+<br>
+
+<span id="tec3">
+
+## 🔌 Tecnologias Utilizadas
+
+<div align="center">
+<img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/>
+<img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/>
+<img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/>
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
+<img src="https://img.shields.io/badge/Bootstrap-white?style=for-the-badge&logo=bootstrap&logoColor=7610F6"/>
+</div>
+
+<br>
+
+<span id="backlog3">
+
+## 🌱 Backlog do Produto *Atividade3*
+
+ #### Épicos (Requisitos) 
+- [ ] Substituir os componentes de função por componentes de classe
+- [ ] Adaptar a GUI atual para o uso de Hooks.
+
+
+→ [Voltar ao topo](#topo)
+
+<br>
+
+<span id="manual3">
+
+## :scroll: Manual do Usuário
+
+- crie uma pasta, entre nela e abra o cmd
+- clone o repositório
+~~~
+git clone https://github.com/b4hia/PetLovers-PL/atv2-pl.git 
+~~~
+    
+- entre no clone 
+~~~
+cd atv3-pl
 ~~~
 
 - entre na pasta source 
