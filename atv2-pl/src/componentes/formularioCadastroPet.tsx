@@ -11,6 +11,8 @@ export default class FormularioCadastroPet extends Component<props> {
         let tema = this.props.tema
         return (
             <div className="container-fluid">
+                <h5>Cadastro de Pet</h5>
+                <hr />
                 <form className="row g-3">
                     <div className="input-group mb-3">
                         <input type="text" className="form-control" placeholder="Nome do Pet" aria-label="Nome do Pet" aria-describedby="basic-addon1" />
@@ -42,6 +44,7 @@ export default class FormularioCadastroPet extends Component<props> {
                             <option>Outros</option>
                         </select>
                     </div>
+                    <hr />
                     <div className="container text-center">
                         <div className="input-group mb-5">
                             <button className="btn btn-outline-secondary" type="button" style={{ background: tema }}>Cadastrar Pet</button>
