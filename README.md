@@ -69,19 +69,16 @@ Para que a execução do sistema e seu uso sejam efetivados, tenha instalado as 
 ## 🌱 Backlog do Produto *Atividade1*
 
  #### Épicos (Requisitos Funcionais) 
-| CÓDIGO | DESCRIÇÃO | STATUS |
-|:------:|:----------:|:----:|
-|   REQ_1  | CRUD (Create, Read, Update e Delete) de clientes e seus respectivos Pets. | 🆗
-|   REQ_2  | CRUD de produtos e serviços. | 🆗
-|   REQ_3  | Registro de consumo dos produtos ou serviços que cada cliente adquiriu. | 🆗
+
+- [x] CRUD (Create, Read, Update e Delete) de clientes e seus respectivos Pets.
+- [x] CRUD de produtos e serviços.
+- [x] Registro de consumo dos produtos ou serviços que cada cliente adquiriu.
 
  #### Especificação das Listagens
-| CÓDIGO | DESCRIÇÃO | STATUS |
-|:------:|:----------:|:----:|
-|   LIST_1    | Listagem dos 10 clientes que mais consumiram produtos ou serviços, em quantidade, não em valor. | 🆗
-|   LIST_2    | Listagem geral dos serviços ou produtos mais consumidos. | 🆗
-|   LIST_3    | Listagem dos serviços ou produtos mais consumidos por tipo e raça de pets. | ⌛
-|   LIST_4    | Listagem dos 5 clientes que mais consumiram em valor, não em quantidade. | 🆗
+- [x] Listagem dos 10 clientes que mais consumiram produtos ou serviços, em quantidade, não em valor.
+- [x] Listagem geral dos serviços ou produtos mais consumidos.
+- [ ] Listagem dos serviços ou produtos mais consumidos por tipo e raça de pets.
+- [x] Listagem dos 5 clientes que mais consumiram em valor, não em quantidade.
 
 <br>
 
@@ -150,6 +147,7 @@ node out/app/main.js
 <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/>
 <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/>
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
+<img src="https://img.shields.io/badge/Bootstrap-white?style=for-the-badge&logo=bootstrap&logoColor=7610F6"/>
 </div>
 
 <br>
@@ -159,13 +157,12 @@ node out/app/main.js
 ## 🌱 Backlog do Produto *Atividade2*
 
  #### Épicos (Requisitos) 
-| CÓDIGO | DESCRIÇÃO | STATUS |
-|:------:|:----------:|:----:|
-|   REQ_1  | Desenvolver todas as interfaces HTML. | ⌛
-|   REQ_2  | Não é nescessário integração com o back-end. | ⌛
-|   REQ_3  | Utilizar as bibliotecas Bootstrap e React. | ⌛
-|   REQ_4  | Todas os componentes criados com react devem ser componentes de classe. | ⌛
-|   REQ_5  | O Design precisa ser responsivo. | ⌛
+- [x] Desenvolver todas as interfaces HTML.
+- [x] Não é nescessário integração com o back-end.
+- [x] Utilizar as bibliotecas Bootstrap e React.
+- [x] Todas os componentes criados com react devem ser componentes de classe.
+- [x] O Design precisa ser responsivo.
+
 
 
 → [Voltar ao topo](#topo)
@@ -190,5 +187,15 @@ cd atv2-pl
 - entre na pasta source 
 ~~~
 cd src
+~~~
+
+- instale os pacotes
+~~~
+npm i
+~~~
+
+- rode a aplicação
+~~~
+npm start
 ~~~
 
