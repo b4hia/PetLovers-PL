@@ -373,12 +373,17 @@ export default class ListaCliente extends Component<props>{
     <br />
     <form className="row">
         <div className="col">
-            <div className="input-group mb-5">
+            <div className="input-group mb-3">
                 <button className="btn btn-outline" type="button" style={{ background: tema }} onClick={(e) => this.props.seletorView("Buscar Tutor", e)}>Atualizar/Editar um Pet</button>
             </div>
         </div>
         <div className="col">
-            <div className="input-group mb-5">
+            <div className="input-group mb-3">
+                <button className="btn btn-outline" type="button" style={{ background: tema }} onClick={(e) => this.props.seletorView("Mais Consumidos", e)}>Produtos & Serviços mais consumidos</button>
+            </div>
+        </div>
+        <div className="col">
+            <div className="input-group mb-3">
                 <button className="btn btn-outline" type="button" style={{ background: tema }} onClick={(e) => this.props.seletorView("Pagamento", e)}>Ir para Pagamento</button>
             </div>
         </div>       

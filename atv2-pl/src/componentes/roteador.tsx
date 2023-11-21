@@ -8,6 +8,7 @@ import FormularioCadastroPet from "./formularioCadastroPet";
 import FormularioBuscarTutor from "./formularioBuscarTutor";
 import FormularioAtualizarPet from "./formularioAtualizarPet";
 import Pagamento from "./pagamento";
+import MaisConsumidos from "./listaMaisConsumidos";
 
 type state = {
     tela: string
@@ -86,6 +87,14 @@ export default class Roteador extends Component<{}, state>{
                 <>
                     {barraNavegacao}
                     <Pagamento tema="#5eb4fc" red="#fc6464" />
+                </>
+            )
+        }
+        else if (this.state.tela === 'Mais Consumidos') {
+            return (
+                <>
+                    {barraNavegacao}
+                    <MaisConsumidos tema="#5eb4fc" red="#fc6464" />
                 </>
             )
         }
