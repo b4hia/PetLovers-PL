@@ -6,34 +6,69 @@ export default function ListaCliente(props) {
     let red = props.red
     let green = props.green
 
-    const [clientes, setClientes] = useState(["ASD", "ASD"]);
-    let c = 0;
+    class Cliente {
+        constructor(nome, nomeSocial, rg, cpf, email) {
+            this.nome = nome;
+            this.nomeSocial = nomeSocial;
+            this.rg = rg;
+            this.cpf = cpf;
+            this.email = email;
+        }
+    }
 
-    clientes.map((cliente) => {
+    const [edit, setEdit] = useState(false);
+    const [clientes, setClientes] = useState([new Cliente("Nome1", "NomeSocial1", "RG1", "CPF1", "ASD1"), new Cliente("Nome2", "NomeSocial2", "RG2", "CPF2", "ASD2")]);
+    const [editingClient, setEditingClient] = useState(0);
+    const [editingClientIndex, setEditingClientIndex] = useState(0);
+
+    const handleInputChange = (e, field) => {
+        let edClient = editingClient;
+        edClient[field] = e.target.value;
+        setEditingClient(edClient);
+    };
+    
+    const handleEdit = (e) => {
+        if (edit) {
+            setEdit(false);
+            let clients = clientes;
+            clients[editingClientIndex] = editingClient;
+        } else {
+            setEdit(true);
+            setEditingClientIndex(e.target.value);
+            setEditingClient(clientes[e.target.value]);
+            console.log(editingClient);
+        };
+        e.preventDefault();
+    };
+    let c = 0;
+    console.log(clientes);
+
+    let lista = clientes.map((cliente) => {
         c += 1;
         return (
             <div className="accordion-item">
                 <h2 className="accordion-header">
-                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#collapseOne${c}`}aria-expanded="true" aria-controls={`collapseOne${c}`}>
-                        Cliente 1
+                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#collapseOne${c}`} aria-expanded="true" aria-controls={`collapseOne${c}`}>
+                        {cliente.nome}
                     </button>
                 </h2>
                 <div id={`collapseOne${c}`} className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div className="accordion-body">
                         <form className="row g-3">
                             <div className="input-group mb-3">
-                                <input type="text" className="form-control" placeholder="Cliente1" aria-label="Cliente1" aria-describedby="basic-addon1" />
+                                {/* Preciso conseguir alterar o valor do input */}
+                                <input type="text" className="form-control" placeholder="Cliente1" value={cliente.nome} aria-label="Cliente1" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleInputChange(e, 'nome')} />
                             </div>
                             <div className="input-group mb-3">
-                                <input type="text" className="form-control" placeholder="Nome Social" aria-label="Nome Social" aria-describedby="basic-addon1" />
+                                <input type="text" className="form-control" placeholder="Nome Social" value={cliente.nomeSocial} aria-label="Nome Social" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleInputChange(e, 'nomeSocial')} />
                             </div>
                             <div className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1" style={{ background: tema }}>@</span>
-                                <input type="text" className="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon1" />
+                                <input type="text" className="form-control" placeholder="E-mail" value={cliente.email} aria-label="E-mail" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleInputChange(e, 'email')} />
                             </div>
                             <div className="input-group mb-3">
                                 <a href="!!"><button className="input-group-text" style={{ background: red }}><i className="bi bi-trash" style={{ fontSize: 20 }}></i></button></a>
-                                <a href="!!"><button className="input-group-text" style={{ background: green }}><i className="bi bi-pencil" style={{ fontSize: 20 }}></i></button></a>
+                                <a href="!!"><button className="input-group-text" style={{ background: green }} value={clientes.indexOf(cliente)} onClick={handleEdit}><i className="bi bi-pencil" style={{ fontSize: 20 }}></i></button></a>
                             </div>
                             <div className="col-md-11">
                                 <label htmlFor="inputState" className="form-label">Selecionar Pet</label>
@@ -80,8 +115,8 @@ export default function ListaCliente(props) {
                     </div>
                 </div>
             </div>
-        )
-    })
+        );
+    });
 
     return (
         <div className="container-fluid">
@@ -437,7 +472,7 @@ export default function ListaCliente(props) {
                             </div>
                         </div>
                     </div> */}
-                    {ListaCliente}
+                    {lista}
                 </div>
             </div>
             <br />
