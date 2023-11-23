@@ -18,32 +18,35 @@ export default function ListaCliente(props) {
 
     const [edit, setEdit] = useState(false);
     const [clientes, setClientes] = useState([new Cliente("Nome1", "NomeSocial1", "RG1", "CPF1", "ASD1"), new Cliente("Nome2", "NomeSocial2", "RG2", "CPF2", "ASD2")]);
-    const [editingClient, setEditingClient] = useState(0);
+    const [editingClient, setEditingClient] = useState({ nome: '', raça: '' });
     const [editingClientIndex, setEditingClientIndex] = useState(0);
 
     const handleInputChange = (e, field) => {
-        let edClient = editingClient;
-        edClient[field] = e.target.value;
-        setEditingClient(edClient);
+        setEditingClient({ ...editingClient, [field]: e.target.value });
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
     };
     
-    const handleEdit = (e) => {
+    const handleEdit = (index) => {
         if (edit) {
             setEdit(false);
-            let clients = clientes;
-            clients[editingClientIndex] = editingClient;
+            setClientes((prevClientes) => {
+                const newClientes = [...prevClientes];
+                newClientes[editingClientIndex] = editingClient;
+                return newClientes;
+            });
         } else {
             setEdit(true);
-            setEditingClientIndex(e.target.value);
-            setEditingClient(clientes[e.target.value]);
-            console.log(editingClient);
-        };
-        e.preventDefault();
+            setEditingClientIndex(index);
+            setEditingClient(clientes[index]);
+        }
+    
     };
     let c = 0;
     console.log(clientes);
 
-    let lista = clientes.map((cliente) => {
+    const lista = clientes.map((cliente, index) => {
         c += 1;
         return (
             <div className="accordion-item">
@@ -54,21 +57,20 @@ export default function ListaCliente(props) {
                 </h2>
                 <div id={`collapseOne${c}`} className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div className="accordion-body">
-                        <form className="row g-3">
+                        <form className="row g-3" onSubmit={handleSubmit}>
                             <div className="input-group mb-3">
-                                {/* Preciso conseguir alterar o valor do input */}
-                                <input type="text" className="form-control" placeholder="Cliente1" value={cliente.nome} aria-label="Cliente1" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleInputChange(e, 'nome')} />
+                                <input type="text" className="form-control" placeholder="Cliente1" value={editingClient.nome} aria-label="Cliente1" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleInputChange(e, 'nome')} />
                             </div>
                             <div className="input-group mb-3">
-                                <input type="text" className="form-control" placeholder="Nome Social" value={cliente.nomeSocial} aria-label="Nome Social" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleInputChange(e, 'nomeSocial')} />
+                                <input type="text" className="form-control" placeholder="Nome Social" value={editingClient.nomeSocial} aria-label="Nome Social" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleInputChange(e, 'nomeSocial')} />
                             </div>
                             <div className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1" style={{ background: tema }}>@</span>
-                                <input type="text" className="form-control" placeholder="E-mail" value={cliente.email} aria-label="E-mail" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleInputChange(e, 'email')} />
+                                <input type="text" className="form-control" placeholder="E-mail" value={editingClient.email} aria-label="E-mail" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleInputChange(e, 'email')} />
                             </div>
                             <div className="input-group mb-3">
                                 <a href="!!"><button className="input-group-text" title="Clique aqui para excluir o cliente" style={{ background: red }}><i className="bi bi-trash" style={{ fontSize: 20 }}></i></button></a>
-                                <a href="!!"><button className="input-group-text" title="Clique aqui para editar ou salvar edições" data-bs-trigger="hover focus" data-bs-content="Clique aqui para editar" style={{ background: green }} value={clientes.indexOf(cliente)} onClick={handleEdit}><i className="bi bi-pencil" style={{ fontSize: 20 }}></i></button></a>
+                                <a href="!!"><button className="input-group-text" title="Clique aqui para editar ou salvar edições" data-bs-trigger="hover focus" data-bs-content="Clique aqui para editar" style={{ background: green }} onClick={() => handleEdit(index)}><i className="bi bi-pencil" style={{ fontSize: 20 }}></i></button></a>
                             </div>
                             <div className="col-md-11">
                                 <label htmlFor="inputState" className="form-label">Selecionar Pet</label>
