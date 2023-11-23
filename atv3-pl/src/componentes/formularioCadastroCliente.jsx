@@ -3,6 +3,7 @@ import { useState } from "react"
 export default function FormularioCadastroCliente(props) {
     let tema = props.tema
     let azul = props.azul
+
     const [nome, setNome] = useState("")
     const [nomesocial, setNomeSocial] = useState("")
     const [rg, setRG] = useState("")
@@ -14,6 +15,7 @@ export default function FormularioCadastroCliente(props) {
         <div className="container-fluid">
                 <h5>Cadastro de Cliente</h5>
                 <hr />
+                
                 <form>
                     <div className="input-group mb-3">
                         <input type="text" className="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="basic-addon1" onChange={(e) => {setNome(e.target.value)}}/>
@@ -46,7 +48,7 @@ export default function FormularioCadastroCliente(props) {
                             </div>
                             <div className="col">
                                 <div className="input-group mb-3">
-                                    <button className="btn btn-outline" type="button" style={{ background: azul }} onClick={(e) => this.props.seletorView("Cadastrar Pet", e)}>Cadastrar um Pet</button>
+                                    <button className="btn btn-outline" type="button" style={{ background: azul }} onClick={(e) => props.seletorView("Cadastrar Pet", e)}>Cadastrar Pet</button>
                                 </div>
                             </div>
                         </div>
