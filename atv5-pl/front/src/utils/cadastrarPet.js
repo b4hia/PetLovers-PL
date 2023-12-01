@@ -18,4 +18,4 @@ export default function cadastrarPet(pet, cpf) {
             alert("Cliente não encontrado");
         };
     });
-}
+};

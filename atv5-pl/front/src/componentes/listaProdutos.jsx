@@ -1,4 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react';
+import cadastrarProduto from '../utils/cadastrarProduto';
+import axios from 'axios';
+
 export default function Produtos(props) {
     let tema = props.tema
     let red = props.red
@@ -15,18 +18,20 @@ export default function Produtos(props) {
     const [produtos, setProdutos] = useState([]);
     const [editingProduto, setEditingProduto] = useState([]);
     const [editingProdutoIndex, setEditingProdutoIndex] = useState(0);
-    
-    fetch('http://localhost:3001/produtos',{
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-        .then((resp) => resp.json())
-        .then((data) =>{
-            setProdutos(data)
+
+    useEffect(() => {
+        fetch('http://localhost:3001/produtos', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
-        .catch((err) => console.log(err))
+            .then((resp) => resp.json())
+            .then((data) => {
+                setProdutos(data)
+            })
+            .catch((err) => console.log(err))
+    }, []);
 
     const handleInputChange = (e, field) => {
         let edProduto = editingProduto;
@@ -63,7 +68,7 @@ export default function Produtos(props) {
                     <div className="accordion-body">
                         <div className="input-group mt-3">
                             <span className="input-group-text">R$</span>
-                            <input type="text" className="form-control" value={produto.preco} aria-label="Amount (to the nearest dollar)" disabled={!edit} onChange={(e) => handleInputChange(e, 'preco')}/>
+                            <input type="text" className="form-control" value={produto.preco} aria-label="Amount (to the nearest dollar)" disabled={!edit} onChange={(e) => handleInputChange(e, 'preco')} />
                             <span className="input-group-text">.00</span>
                         </div>
                         <div className="input-group mb-3">
@@ -74,39 +79,47 @@ export default function Produtos(props) {
                 </div>
             </div>
         )
-});
-return (
-    <div className="container-fluid">
-        <h5>Cadastro de Produto</h5>
-        <hr />
-        <form>
-            <div className="input-group mb-3">
-                <input type="text" className="form-control" placeholder="Nome do Produto" aria-label="Nome do Produto" aria-describedby="basic-addon1" />
+    });
+
+    const [nomeProduto, setNomeProduto] = useState("");
+    const [precoProduto, setPrecoProduto] = useState(0);
+    function handleSubmit(e) {
+        e.preventDefault();
+        cadastrarProduto({ nome: nomeProduto, preco: precoProduto });
+    };
+
+    return (
+        <div className="container-fluid">
+            <h5>Cadastro de Produto</h5>
+            <hr />
+            <form onSubmit={(e) => handleSubmit(e)}>
+                <div className="input-group mb-3">
+                    <input type="text" className="form-control" placeholder="Nome do Produto" aria-label="Nome do Produto" aria-describedby="basic-addon1" onChange={(e) => setNomeProduto(e.target.value)} />
+                </div>
+                <div className="input-group mb-3">
+                    <span className="input-group-text">R$</span>
+                    <input type="text" className="form-control" aria-label="Amount (to the nearest dollar)" onChange={(e) => setPrecoProduto(e.target.value)} />
+                    <span className="input-group-text">.00</span>
+                </div>
+                <div className="input-group mb-3">
+                    <button className="btn btn-outline-secondary" type="submit" style={{ background: tema }}>Cadastrar novo Produto</button>
+                </div>
+            </form>
+            <div className="list-group">
+                <div className="accordion" id="accordionExample">
+                    {lista}
+                </div>
             </div>
-            <div className="input-group mb-3">
-                <span className="input-group-text">R$</span>
-                <input type="text" className="form-control" aria-label="Amount (to the nearest dollar)" />
-                <span className="input-group-text">.00</span>
-            </div>
-            <div className="input-group mb-3">
-                <button className="btn btn-outline-secondary" type="button" style={{ background: tema }}>Cadastrar novo Produto</button>
-            </div>
-        </form>
-        <div className="list-group">
-            <div className="accordion" id="accordionExample">
-                {lista}
-            </div>
+            <br />
+            <h5>Produtos mais Consumidos em Quantidade</h5>
+            <ul className="list-group">
+                <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Produto1</li>
+                <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Produto2</li>
+                <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Produto3</li>
+                <li className="list-group-item">Produto4</li>
+                <li className="list-group-item">Produto5</li>
+            </ul>
+            <br />
         </div>
-        <br />
-                    <h5>Produtos mais Consumidos em Quantidade</h5>
-                    <ul className="list-group">
-                        <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Produto1</li>
-                        <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Produto2</li>
-                        <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Produto3</li>
-                        <li className="list-group-item">Produto4</li>
-                        <li className="list-group-item">Produto5</li>
-                    </ul>
-        <br />
-    </div>
-        )
-    }
+    )
+}
