@@ -27,6 +27,11 @@
       "id": 1,
       "nome": "Corte",
       "preco": 30
+    },
+    {
+      "nome": "Banho",
+      "preco": "100",
+      "id": 2
     }
   ]
 }
