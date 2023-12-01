@@ -4,12 +4,22 @@
     {
       "id": 1,
       "nome": "Shampoo",
-      "preco": 30
+      "preco": "5"
     },
     {
       "nome": "Condicionador",
-      "preco": "30",
+      "preco": "20",
       "id": 2
+    },
+    {
+      "nome": "Test",
+      "preco": "32",
+      "id": 3
+    },
+    {
+      "nome": "Teste",
+      "preco": "231",
+      "id": 4
     }
   ],
   "servicos": [

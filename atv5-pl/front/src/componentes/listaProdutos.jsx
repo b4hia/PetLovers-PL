@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import cadastrarProduto from '../utils/cadastrarProduto';
+import alterarProduto from '../utils/alterarProduto';
 import axios from 'axios';
 
 export default function Produtos(props) {
@@ -14,47 +15,30 @@ export default function Produtos(props) {
         }
     }
 
-    const [edit, setEdit] = useState(false);
     const [produtos, setProdutos] = useState([]);
-    const [editingProduto, setEditingProduto] = useState([]);
-    const [editingProdutoIndex, setEditingProdutoIndex] = useState(0);
+    const [edit, setEdit] = useState(false);
+
+    const [id, setId] = useState(0);
+    const [nome, setNome] = useState("");
+    const [preco, setPreco] = useState(0);
 
     useEffect(() => {
-        fetch('http://localhost:3001/produtos', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then((resp) => resp.json())
-            .then((data) => {
-                setProdutos(data)
+        axios.get('http://localhost:3001/produtos')
+            .then((response) => {
+                setProdutos(response.data);
             })
             .catch((err) => console.log(err))
     }, []);
 
-    const handleInputChange = (e, field) => {
-        let edProduto = editingProduto;
-        edProduto[field] = e.target.value;
-        setEditingProduto(edProduto);
-    };
-
-    const handleEdit = (e) => {
-        if (edit) {
-            setEdit(false);
-            let produts = produtos;
-            produts[editingProdutoIndex] = editingProduto;
-        } else {
-            setEdit(true);
-            setEditingProdutoIndex(e.target.value);
-            setEditingProduto(produtos[e.target.value]);
-            console.log(editingProduto);
-        };
+    function handleEdit(e) {
         e.preventDefault();
+        if (edit) {
+            alterarProduto({ id: id, nome: nome, preco: preco });
+        };
+        setEdit(!edit);
     };
-    let c = 0;
-    console.log(produtos);
 
+    let c = 0;
     let lista = produtos.map((produto) => {
         c += 1;
         return (
@@ -68,12 +52,12 @@ export default function Produtos(props) {
                     <div className="accordion-body">
                         <div className="input-group mt-3">
                             <span className="input-group-text">R$</span>
-                            <input type="text" className="form-control" value={produto.preco} aria-label="Amount (to the nearest dollar)" disabled={!edit} onChange={(e) => handleInputChange(e, 'preco')} />
+                            <input type="text" className="form-control" placeholder={produto.preco} aria-label="Amount (to the nearest dollar)" disabled={!edit} onChange={(e) => { setPreco(e.target.value); setId(produto.id); setNome(produto.nome) }} />
                             <span className="input-group-text">.00</span>
                         </div>
                         <div className="input-group mb-3">
                             <a href="!!"><button className="input-group-text" style={{ background: red }}><i className="bi bi-trash" style={{ fontSize: 20 }}></i></button></a>
-                            <a href="!!"><button className="input-group-text" style={{ background: green }} value={produtos.indexOf(produto)} onClick={handleEdit}><i className="bi bi-pencil" style={{ fontSize: 20 }}></i></button></a>
+                            <a href="!!"><button className="input-group-text" style={{ background: green }} onClick={(e) => handleEdit(e)} value={produtos.indexOf(produto)}><i className="bi bi-pencil" style={{ fontSize: 20 }}></i></button></a>
                         </div>
                     </div>
                 </div>
@@ -83,6 +67,7 @@ export default function Produtos(props) {
 
     const [nomeProduto, setNomeProduto] = useState("");
     const [precoProduto, setPrecoProduto] = useState(0);
+
     function handleSubmit(e) {
         e.preventDefault();
         cadastrarProduto({ nome: nomeProduto, preco: precoProduto });
@@ -121,5 +106,5 @@ export default function Produtos(props) {
             </ul>
             <br />
         </div>
-    )
-}
+    );
+};
