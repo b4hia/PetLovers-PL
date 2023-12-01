@@ -14,7 +14,14 @@
       "email": "wellingtonll.faria@gmail.com",
       "servicos": [],
       "produtos": [],
-      "pets": [],
+      "pets": [
+        {
+          "nome": "Luna",
+          "raca": "Shitzu",
+          "tipo": "Cachorro",
+          "genero": "Fêmea"
+        }
+      ],
       "id": 1
     },
     {

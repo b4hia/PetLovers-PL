@@ -1,14 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import cadastrarPet from '../utils/cadastrarPet';
+
 export default function FormularioCadastroPet(props) {
-    let tema = props.tema
-    let azul = props.azul
-    const [nome, setNome] = useState("")
-    const [raça, setRaça] = useState("")
-    const [cpf, setCPF] = useState("")
-    const [tipo, setTipoPet] = useState("")
-    const [genero, setGenero] = useState("")
+    let tema = props.tema;
+    let azul = props.azul;
+    const [nome, setNome] = useState("");
+    const [raça, setRaça] = useState("");
+    const [cpf, setCPF] = useState("");
+    const [tipo, setTipoPet] = useState("");
+    const [genero, setGenero] = useState("");
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        cadastrarPet({nome: nome, raca: raça, tipo: tipo, genero: genero}, cpf);
+    };
+
     return (
-        <div className="container-fluid">
+        <div className="container-fluid" onSubmit={(e) => handleSubmit(e)}>
                 <h5>Cadastro de Pet</h5>
                 <hr />
                 <form className="row g-3">
@@ -45,7 +53,7 @@ export default function FormularioCadastroPet(props) {
                     <hr />
                     <div className="container text-center">
                         <div className="input-group mb-5">
-                            <button className="btn btn-outline-secondary" type="button" style={{ background: tema }}>Cadastrar Pet</button>
+                            <button className="btn btn-outline-secondary" type="submit" style={{ background: tema }}>Cadastrar Pet</button>
                         </div>    
                     </div>
                 </form>
