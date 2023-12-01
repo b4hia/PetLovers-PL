@@ -19,7 +19,7 @@ export default function Roteador() {
         console.log(valor);
     }
 
-    const botoes = ['Clientes', 'Cadastros', 'Produtos', 'Serviços', 'Visualizar Cliente'];
+    const botoes = ['Clientes', 'Cadastros', 'Produtos', 'Serviços'];
 
     const construirView = () => {
         if (tela === 'Clientes') {
@@ -85,18 +85,11 @@ export default function Roteador() {
                     <FormularioAtualizarPet tema="#5eb4fc" red="#fc6464" azul="#5eb4fc" />
                 </>
             )
-        } else if (tela === "Visualizar Cliente") {
-            return (
-                <>
-                    <BarraNavegacao seletorView={selecionarView} tema="#87c7fd" botoes={botoes} />
-                    <VisualizarCliente tema="#5eb4fc" red="#fc6464" green="#00ff00" seletorView={selecionarView} idCliente={1} />
-                </>
-            )
         } else {
             return (
                 <>
                     <BarraNavegacao seletorView={selecionarView} tema="#87c7fd" botoes={botoes} />
-                    <FormularioCadastroCliente tema="#5eb4fc" azul="#5eb4fc" />
+                    <FormularioCadastroCliente seletorView={selecionarView} tema="#5eb4fc" azul="#5eb4fc" />
                 </>
             )
         }

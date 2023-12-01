@@ -2,8 +2,9 @@ import { useState } from "react"
 import axios from "axios";
 
 export default function FormularioCadastroCliente(props) {
-    let tema = props.tema
-    let azul = props.azul
+    let tema = props.tema;
+    let azul = props.azul;
+    let seletorView = props.seletorView;
 
     const [nome, setNome] = useState("")
     const [nomesocial, setNomeSocial] = useState("")
@@ -33,6 +34,7 @@ export default function FormularioCadastroCliente(props) {
         };
         axios.post("http://localhost:3001/clientes", cliente).then((resposta) => {
             console.log(resposta.data);
+            seletorView("Clientes", e);
         });
     };
 

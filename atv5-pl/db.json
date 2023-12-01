@@ -1,5 +1,40 @@
 {
-  "clientes": [],
+  "clientes": [
+    {
+      "nome": "Wellington",
+      "nome_social": "Wellington",
+      "rg": {
+        "valor": "12345678912",
+        "data": "2005-01-04"
+      },
+      "cpf": {
+        "valor": "12345678913",
+        "data": "2005-01-04"
+      },
+      "email": "wellingtonll.faria@gmail.com",
+      "servicos": [],
+      "produtos": [],
+      "pets": [],
+      "id": 1
+    },
+    {
+      "nome": "Vasco",
+      "nome_social": "Ryan",
+      "rg": {
+        "valor": "12345678912",
+        "data": "2005-01-04"
+      },
+      "cpf": {
+        "valor": "12345678913",
+        "data": "2005-01-04"
+      },
+      "email": "ryan@araujo.com",
+      "servicos": [],
+      "produtos": [],
+      "pets": [],
+      "id": 2
+    }
+  ],
   "produtos": [
     {
       "id": 1,
