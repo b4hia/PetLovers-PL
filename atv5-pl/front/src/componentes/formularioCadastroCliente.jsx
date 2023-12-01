@@ -1,4 +1,5 @@
 import { useState } from "react"
+import axios from "axios";
 
 export default function FormularioCadastroCliente(props) {
     let tema = props.tema
@@ -11,12 +12,36 @@ export default function FormularioCadastroCliente(props) {
     const [cpf, setCPF] = useState("")
     const [cpfdata, setCPFemissao] = useState("")
     const [mail, setMail] = useState("")
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        let cliente = {
+            nome: nome,
+            nome_social: nomesocial,
+            rg: {
+                valor: rg,
+                data: rgdata
+            },
+            cpf: {
+                valor: cpf,
+                data: cpfdata
+            },
+            email: mail,
+            servicos: [],
+            produtos: [],
+            pets: []
+        };
+        axios.post("http://localhost:3001/clientes", cliente).then((resposta) => {
+            console.log(resposta.data);
+        });
+    };
+
     return (
         <div className="container-fluid">
                 <h5>Cadastro de Cliente</h5>
                 <hr />
                 
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="input-group mb-3">
                         <input type="text" className="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="basic-addon1" onChange={(e) => {setNome(e.target.value)}}/>
                     </div>
@@ -43,7 +68,7 @@ export default function FormularioCadastroCliente(props) {
                         <div className="row">
                             <div className="col">
                                 <div className="input-group mb-3">
-                                    <button className="btn btn-outline" type="button" style={{ background: azul }}>Finalizar Cadastro de Cliente</button>
+                                    <button className="btn btn-outline" type="submit" style={{ background: azul }}>Finalizar Cadastro de Cliente</button>
                                 </div>
                             </div>
                             <div className="col">

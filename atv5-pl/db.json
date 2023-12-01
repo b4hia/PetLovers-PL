@@ -1,0 +1,17 @@
+{
+  "clientes": [],
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Shampoo",
+      "preco": 30
+    }
+  ],
+  "servicos": [
+    {
+      "id": 1,
+      "nome": "Corte",
+      "preco": 30
+    }
+  ]
+}
