@@ -105,14 +105,14 @@ export default function ListaCliente(props) {
                     <div className="accordion-body">
                         <form className="row g-3" onSubmit={handleSubmit}>
                             <div className="input-group mb-3">
-                                <input type="text" className="form-control" placeholder={"Nome: " + cliente.nome} aria-label="Cliente1" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleChange(e)} name='nome'/>
+                                <input type="text" className="form-control" placeholder={"Nome: " + cliente.nome} aria-label="Cliente1" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleChange(e)} name='nome' />
                             </div>
                             <div className="input-group mb-3">
-                                <input type="text" className="form-control" placeholder={"Nome social: " + cliente.nome_social} aria-label="Nome Social" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleChange(e)} name='nome_social'/>
+                                <input type="text" className="form-control" placeholder={"Nome social: " + cliente.nome_social} aria-label="Nome Social" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleChange(e)} name='nome_social' />
                             </div>
                             <div className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1" style={{ background: tema }}>@</span>
-                                <input type="text" className="form-control" placeholder={cliente.email} aria-label="E-mail" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleChange(e)} name='email'/>
+                                <input type="text" className="form-control" placeholder={cliente.email} aria-label="E-mail" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleChange(e)} name='email' />
                             </div>
                             <div className="input-group mb-3">
                                 <a href="!!"><button className="input-group-text" title="Clique aqui para excluir o cliente" style={{ background: red }} onClick={() => handleDelete(cliente.id)}><i className="bi bi-trash" style={{ fontSize: 20 }}></i></button></a>
