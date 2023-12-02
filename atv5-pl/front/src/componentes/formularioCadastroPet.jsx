@@ -12,6 +12,7 @@ export default function FormularioCadastroPet(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
+        console.log(cpf);
         cadastrarPet({nome: nome, raca: raça, tipo: tipo, genero: genero}, cpf);
     };
 
