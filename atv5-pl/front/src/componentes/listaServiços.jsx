@@ -95,7 +95,10 @@ export default function Serviço(props) {
 
     let listaConsumidos = servicosConsumidos.map((servico) => {
         return (
-            <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> {servico.nome}</li>
+            <li className="list-group-item d-flex justify-content-between align-items-center">
+                {servico.nome}
+                <span className="badge bg-primary rounded-pill">{servico.quantidade}</span>
+            </li>
         )
     });
 
