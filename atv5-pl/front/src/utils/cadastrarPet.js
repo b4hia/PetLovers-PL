@@ -6,11 +6,20 @@ export default function cadastrarPet(pet, cpf) {
         const cliente = clientes.find((cliente) => cliente.cpf.valor === cpf);
         if (cliente) {
             let pets = cliente.pets;
+            let ids = []
+            pets.forEach((pet) => {
+                ids.push(pet.id);
+            });
+            console.log(ids);
+            if (ids.length === 0) {
+                pet.id = 1;
+            } else {
+                ids.sort();
+                pet.id = ids[ids.length - 1] + 1;
+            };
             pets.push(pet);
-            axios.patch("http://localhost:3001/clientes/"+cliente.id, {
+            axios.patch("http://localhost:3001/clientes/" + cliente.id, {
                 pets: pets
-            }).then((response) => {
-                console.log(response.data);
             });
             alert("Pet cadastrado com sucesso");
         } else {

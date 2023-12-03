@@ -150,7 +150,7 @@ export default function ListaCliente(props) {
                                 <select id="inputState" className="form-select" onChange={(e) => { setPetId(e.target.value) }}>
                                     <option selected>Escolha uma opção...</option>
                                     {cliente.pets.map((pet, index) => (
-                                        <option key={index} value={index}>{pet.nome}</option>
+                                        <option key={index} value={pet.id}>{pet.nome}</option>
                                     ))}
                                 </select>
                             </div>

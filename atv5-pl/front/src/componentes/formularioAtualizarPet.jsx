@@ -28,7 +28,14 @@ export default function FormularioAtualizarPet(props) {
     const handleEdit = (index) => {
         if (edit) {
             let a = [...pets];
-            a[editingPetIndex] = { nome: nome, raca: raca, genero: genero, tipo: tipo }
+            a.forEach((pet) => {
+                if (pet.id === editingPetIndex) {
+                    pet.nome = nome;
+                    pet.raca = raca;
+                    pet.genero = genero;
+                    pet.tipo = tipo;
+                };
+            });
             alterarPet(a, cpf);
             axios.get(`http://localhost:3001/clientes`).then((response) => {
                 console.log("Status:", response.status)
@@ -88,7 +95,7 @@ export default function FormularioAtualizarPet(props) {
                             </div>
                             <div className="input-group mb-3">
                                 <a href=""><button className="input-group-text" title="Clique aqui para excluir o pet" style={{ background: red }}><i className="bi bi-trash" style={{ fontSize: 20 }}></i></button></a>
-                                <a href=""><button className="input-group-text" title="Clique aqui para editar ou salvar edições" data-bs-trigger="hover focus" data-bs-content="Clique aqui para editar" style={{ background: green }} value={pets.indexOf(pet)} onClick={() => handleEdit(pets.indexOf(pet), { nome: pet.nome, raca: pet.raca, genero: pet.genero, tipo: pet.tipo })}><i className="bi bi-pencil" style={{ fontSize: 20 }}></i></button></a>
+                                <a href=""><button className="input-group-text" title="Clique aqui para editar ou salvar edições" data-bs-trigger="hover focus" data-bs-content="Clique aqui para editar" style={{ background: green }} value={pets.indexOf(pet)} onClick={() => handleEdit(pet.id, { nome: pet.nome, raca: pet.raca, genero: pet.genero, tipo: pet.tipo })}><i className="bi bi-pencil" style={{ fontSize: 20 }}></i></button></a>
                             </div>
                         </form>
                     </div>

@@ -24,17 +24,21 @@ export default function Produtos(props) {
 
     const [produtosConsumidos, setProdutosConsumidos] = useState([]);
     function produtosMaisConsumidos() {
-        axios.get("http://localhost:3001/vendas_produtos").then((res) => {
-            const vendas_produtos = res.data;
-            let prods = [];
-            vendas_produtos.forEach((venda) => {
-                let produto = produtos.find((p) => p.id === Number(venda.idProduto));
-                if (prods.find((p) => p.id === venda.idProduto)) {
-                    prods.find((p) => p.id === venda.idProduto).quantidade += venda.quantidade;
-                } else prods.push({ id: venda.idProduto, quantidade: venda.quantidade, nome: produto.nome });
+        axios.get("http://localhost:3001/produtos").then((res) => {
+            let produtos = res.data;
+            axios.get("http://localhost:3001/vendas_produtos").then((res) => {
+                const vendas_produtos = res.data;
+                let prods = [];
+                vendas_produtos.forEach((venda) => {
+                    let produto = produtos.find((p) => p.id === Number(venda.idProduto));
+                    let nome = produto.nome;
+                    if (prods.find((p) => p.id === venda.idProduto)) {
+                        prods.find((p) => p.id === venda.idProduto).quantidade += venda.quantidade;
+                    } else prods.push({ id: venda.idProduto, quantidade: venda.quantidade, nome: nome });
+                });
+                prods.sort((a, b) => b.quantidade - a.quantidade);
+                setProdutosConsumidos(prods);
             });
-            prods.sort((a, b) => b.quantidade - a.quantidade);
-            setProdutosConsumidos(prods);
         });
     };
 

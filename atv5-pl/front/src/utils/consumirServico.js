@@ -7,12 +7,11 @@ export default function consumirServico(idServico, idCliente, idPet, quantidade)
         if (servico) {
             axios.get("http://localhost:3001/clientes/" + idCliente).then((res) => {
                 const cliente = res.data;
-                let pet = cliente.pets.find((pet) => cliente.pets.indexOf(pet) === Number(idPet));
                 if (cliente) {
                     axios.post("http://localhost:3001/vendas_servicos", {
                         idCliente: idCliente,
                         idServico: idServico,
-                        pet: pet,
+                        idPet: idPet,
                         quantidade: quantidade
                     });
                     alert("Serviço comprado com sucesso!");

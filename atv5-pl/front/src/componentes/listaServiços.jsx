@@ -22,12 +22,32 @@ export default function Serviço(props) {
     const [nome, setNome] = useState("");
     const [preco, setPreco] = useState("");
 
+    const [servicosConsumidos, setServicosConsumidos] = useState([]);
+    function servicosMaisConsumidos() {
+        axios.get("http://localhost:3001/servicos").then((res) => {
+            let servicos = res.data;
+            axios.get("http://localhost:3001/vendas_servicos").then((res) => {
+                const vendas_servicos = res.data;
+                let servs = [];
+                vendas_servicos.forEach((venda) => {
+                    let servico = servicos.find((s) => s.id === Number(venda.idServico));
+                    let nome = servico.nome;
+                    if (servs.find((s) => s.id === venda.idServico)) servs.find((s) => s.id === venda.idServico).quantidade += venda.quantidade;
+                    else servs.push({ id: venda.idServico, quantidade: venda.quantidade, nome: nome });
+                });
+                servs.sort((a, b) => b.quantidade - a.quantidade);
+                setServicosConsumidos(servs);
+            });
+        });
+    };
+
     useEffect(() => {
         axios.get('http://localhost:3001/servicos')
             .then((response) => {
                 setServicos(response.data);
             })
             .catch((err) => console.log(err))
+        servicosMaisConsumidos();
     }, []);
 
     const handleEdit = (e) => {
@@ -73,6 +93,12 @@ export default function Serviço(props) {
         cadastrarServico({ nome: nomeServico, preco: precoServico });
     };
 
+    let listaConsumidos = servicosConsumidos.map((servico) => {
+        return (
+            <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> {servico.nome}</li>
+        )
+    });
+
     return (
         <div className="container-fluid">
             <h5>Cadastro de Serviço</h5>
@@ -98,11 +124,8 @@ export default function Serviço(props) {
             <br />
             <h5>Serviços mais Consumidos em Quantidade</h5>
             <ul className="list-group">
-                <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Serviço1</li>
-                <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Serviço2</li>
-                <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Serviço3</li>
-                <li className="list-group-item">Serviço4</li>
-                <li className="list-group-item">Serviço5</li>
+                {/* <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Serviço1</li> */}
+                {listaConsumidos}
             </ul>
             <br />
 
