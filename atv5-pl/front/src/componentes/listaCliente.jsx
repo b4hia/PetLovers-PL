@@ -1,6 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useEffect, useState } from 'react'
 import axios from 'axios';
+import consumirProduto from '../utils/consumirProduto';
+import consumirServico from '../utils/consumirServico';
+import { getProdutoPorNome } from '../utils/produtos';
 
 export default function ListaCliente(props) {
     let tema = props.tema
@@ -23,6 +26,13 @@ export default function ListaCliente(props) {
     const [editingClient, setEditingClient] = useState({});
     const [rg, setRG] = useState({});
     const [cpf, setCPF] = useState({});
+    const [pet, setPet] = useState({});
+
+    const [petId, setPetId] = useState(0);
+    const [idServico, setIdServico] = useState('');
+    const [idProduto, setIdProduto] = useState('');
+    const [quantidadeServico, setQuantidadeServico] = useState(0);
+    const [quantidadeProduto, setQuantidadeProduto] = useState(0);
 
     useEffect(() => {
         const source = axios.CancelToken.source();
@@ -91,6 +101,23 @@ export default function ListaCliente(props) {
         });
     };
 
+    function handleFazerPedido(idCliente) {
+        if (petId !== 0) {
+            if (idServico !== '' && quantidadeServico !== 0) {
+                consumirServico(idServico, idCliente, petId, quantidadeServico);
+            } else {
+                console.log('Não foi possível fazer o pedido do serviço');
+            }
+            if (idProduto !== '' && quantidadeProduto !== 0) {
+                consumirProduto(idProduto, idCliente, petId, quantidadeProduto);
+            } else {
+                console.log('Não foi possível fazer o pedido do produto');
+            }
+        } else {
+            alert('Pet não selecionado');
+        };
+    };
+
     let c = 0;
     const lista = clientes.map((cliente, index) => {
         c += 1;
@@ -120,16 +147,16 @@ export default function ListaCliente(props) {
                             </div>
                             <div className="col-md-11">
                                 <label htmlFor="inputState" className="form-label">Selecionar Pet</label>
-                                <select id="inputState" className="form-select">
+                                <select id="inputState" className="form-select" onChange={(e) => { setPetId(e.target.value) }}>
                                     <option selected>Escolha uma opção...</option>
                                     {cliente.pets.map((pet, index) => (
-                                        <option key={index} value={pet.id}>{pet.nome}</option>
+                                        <option key={index} value={index}>{pet.nome}</option>
                                     ))}
                                 </select>
                             </div>
                             <div className="col-md-3">
                                 <label htmlFor="inputState" className="form-label">Solicitar Serviço</label>
-                                <select id="inputState" className="form-select">
+                                <select id="inputState" className="form-select" onChange={(e) => { setIdServico(e.target.value) }}>
                                     <option selected>Escolha uma opção...</option>
                                     {servicos.map((servico, index) => (
                                         <option key={index} value={servico.id}>{servico.nome}</option>
@@ -138,11 +165,11 @@ export default function ListaCliente(props) {
                             </div>
                             <div className="col-md-1">
                                 <label htmlFor="inputState" className="form-label">Quantidade</label>
-                                <input type="number" className="form-control" placeholder="" aria-label="Quantidade" />
+                                <input type="number" className="form-control" placeholder="" aria-label="Quantidade" onChange={(e) => { setQuantidadeServico(e.target.value) }} />
                             </div>
                             <div className="col-md-3">
                                 <label htmlFor="inputState" className="form-label">Solicitar Produto</label>
-                                <select id="inputState" className="form-select">
+                                <select id="inputState" className="form-select" onChange={(e) => { setIdProduto(e.target.value) }}>
                                     <option selected>Escolha uma opção...</option>
                                     {produtos.map((produto, index) => (
                                         <option key={index} value={produto.id}>{produto.nome}</option>
@@ -151,10 +178,10 @@ export default function ListaCliente(props) {
                             </div>
                             <div className="col-md-1">
                                 <label htmlFor="inputState" className="form-label">Quantidade</label>
-                                <input type="number" className="form-control" placeholder="" aria-label="Quantidade" />
+                                <input type="number" className="form-control" placeholder="" aria-label="Quantidade" onChange={(e) => { setQuantidadeProduto(e.target.value) }} />
                             </div>
                             <div className="col-md-1">
-                                <button className="btn btn-outline" type="button" style={{ background: tema }} >Fazer Pedido</button>
+                                <button className="btn btn-outline" type="button" style={{ background: tema }} onClick={(e) => { handleFazerPedido(cliente.id) }}>Fazer Pedido</button>
                             </div>
                         </form>
                     </div>
@@ -192,4 +219,4 @@ export default function ListaCliente(props) {
             </form>
         </div>
     )
-}
+};

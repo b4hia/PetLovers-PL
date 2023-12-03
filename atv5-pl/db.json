@@ -1,5 +1,89 @@
 {
-  "clientes": [],
+  "clientes": [
+    {
+      "nome": "Well",
+      "nome_social": "Well",
+      "rg": {
+        "valor": "12345678912",
+        "data": "2005-01-04"
+      },
+      "cpf": {
+        "valor": "",
+        "data": ""
+      },
+      "email": "cliente@cliente",
+      "servicos": [],
+      "produtos": [],
+      "pets": [],
+      "id": 1
+    },
+    {
+      "nome": "Ryan",
+      "nome_social": "Ryan",
+      "rg": {
+        "valor": "12345678913",
+        "data": "2005-01-04"
+      },
+      "cpf": {
+        "valor": "12345678912",
+        "data": "2005-01-04"
+      },
+      "email": "ryan@araujo.com",
+      "servicos": [],
+      "produtos": [],
+      "pets": [
+        {
+          "nome": "Luna",
+          "raca": "Shitzu",
+          "tipo": "Cachorro",
+          "genero": "Fêmea"
+        },
+        {
+          "nome": "Jade",
+          "raca": "Sla",
+          "genero": "Fêmea",
+          "tipo": "Gato"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "nome": "Cliente",
+      "nome_social": "Cliente",
+      "rg": {
+        "valor": "12345678913",
+        "data": "2005-01-04"
+      },
+      "cpf": {
+        "valor": "12345678913",
+        "data": "2005-01-04"
+      },
+      "email": "cliente@cliente",
+      "servicos": [],
+      "produtos": [],
+      "pets": [
+        {
+          "nome": "B",
+          "raca": "B",
+          "tipo": "Cachorro",
+          "genero": "Macho"
+        },
+        {
+          "nome": "B",
+          "raca": "B",
+          "tipo": "Cachorro",
+          "genero": "Macho"
+        },
+        {
+          "nome": "C",
+          "raca": "C",
+          "tipo": "Cachorro",
+          "genero": "Macho"
+        }
+      ],
+      "id": 3
+    }
+  ],
   "produtos": [
     {
       "id": 1,
@@ -32,6 +116,46 @@
       "nome": "Banho",
       "preco": "100",
       "id": 2
+    }
+  ],
+  "vendas_produtos": [
+    {
+      "idCliente": 3,
+      "idProduto": "2",
+      "pet": {
+        "nome": "B",
+        "raca": "B",
+        "tipo": "Cachorro",
+        "genero": "Macho"
+      },
+      "quantidade": "123",
+      "id": 1
+    },
+    {
+      "idCliente": 3,
+      "idProduto": "2",
+      "pet": {
+        "nome": "B",
+        "raca": "B",
+        "tipo": "Cachorro",
+        "genero": "Macho"
+      },
+      "quantidade": "123",
+      "id": 2
+    }
+  ],
+  "vendas_servicos": [
+    {
+      "idCliente": 3,
+      "idServico": "1",
+      "pet": {
+        "nome": "B",
+        "raca": "B",
+        "tipo": "Cachorro",
+        "genero": "Macho"
+      },
+      "quantidade": "123",
+      "id": 1
     }
   ]
 }
