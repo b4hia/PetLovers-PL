@@ -142,6 +142,30 @@
       },
       "quantidade": "123",
       "id": 2
+    },
+    {
+      "idCliente": 3,
+      "idProduto": "3",
+      "pet": {
+        "nome": "B",
+        "raca": "B",
+        "tipo": "Cachorro",
+        "genero": "Macho"
+      },
+      "quantidade": "123",
+      "id": 3
+    },
+    {
+      "idCliente": 3,
+      "idProduto": "4",
+      "pet": {
+        "nome": "B",
+        "raca": "B",
+        "tipo": "Cachorro",
+        "genero": "Macho"
+      },
+      "quantidade": "23",
+      "id": 4
     }
   ],
   "vendas_servicos": [

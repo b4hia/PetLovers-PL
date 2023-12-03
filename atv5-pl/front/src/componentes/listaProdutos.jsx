@@ -22,12 +22,29 @@ export default function Produtos(props) {
     const [nome, setNome] = useState("");
     const [preco, setPreco] = useState(0);
 
+    const [produtosConsumidos, setProdutosConsumidos] = useState([]);
+    function produtosMaisConsumidos() {
+        axios.get("http://localhost:3001/vendas_produtos").then((res) => {
+            const vendas_produtos = res.data;
+            let prods = [];
+            vendas_produtos.forEach((venda) => {
+                let produto = produtos.find((p) => p.id === Number(venda.idProduto));
+                if (prods.find((p) => p.id === venda.idProduto)) {
+                    prods.find((p) => p.id === venda.idProduto).quantidade += venda.quantidade;
+                } else prods.push({ id: venda.idProduto, quantidade: venda.quantidade, nome: produto.nome });
+            });
+            prods.sort((a, b) => b.quantidade - a.quantidade);
+            setProdutosConsumidos(prods);
+        });
+    };
+
     useEffect(() => {
         axios.get('http://localhost:3001/produtos')
             .then((response) => {
                 setProdutos(response.data);
             })
             .catch((err) => console.log(err))
+        produtosMaisConsumidos();
     }, []);
 
     function handleEdit(e) {
@@ -65,6 +82,16 @@ export default function Produtos(props) {
         )
     });
 
+    console.log("Produtos Consumidos:", produtosConsumidos);
+    let maisConsumidos = produtosConsumidos.map((produto) => {
+        return (
+            <li className="list-group-item d-flex justify-content-between align-items-center">
+                {produto.nome}
+                <span className="badge bg-primary rounded-pill">{produto.quantidade}</span>
+            </li>
+        );
+    });
+
     const [nomeProduto, setNomeProduto] = useState("");
     const [precoProduto, setPrecoProduto] = useState(0);
 
@@ -98,11 +125,7 @@ export default function Produtos(props) {
             <br />
             <h5>Produtos mais Consumidos em Quantidade</h5>
             <ul className="list-group">
-                <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Produto1</li>
-                <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Produto2</li>
-                <li className="list-group-item"><i className="bi bi-award-fill" style={{ fontSize: 20 }}></i> Produto3</li>
-                <li className="list-group-item">Produto4</li>
-                <li className="list-group-item">Produto5</li>
+                {maisConsumidos}
             </ul>
             <br />
         </div>
