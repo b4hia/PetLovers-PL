@@ -110,7 +110,6 @@ export default function FormularioAtualizarPet(props) {
             const cliente = response.data.find((cliente) => cliente.cpf.valor === cpf);
             if (cliente) {
                 setPets(cliente.pets);
-                console.log("Pets buscar:", pets)
             } else {
                 alert("Cliente não encontrado!");
             };
@@ -140,4 +139,4 @@ export default function FormularioAtualizarPet(props) {
             </div>
         </div>
     );
-}
+};
