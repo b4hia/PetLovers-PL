@@ -10,6 +10,7 @@ import Pagamento from "./pagamento";
 import MaisConsumidos from "./listaMaisConsumidos";
 import FormularioAtualizarPet from "./formularioAtualizarPet";
 import VisualizarCliente from "./visualizarCliente";
+import ListaClientesMaisConsumiram from "./listaClientesMaisConsumiram";
 
 export default function Roteador() {
     const [tela, setTela] = useState('Clientes')
@@ -19,7 +20,7 @@ export default function Roteador() {
         console.log(valor);
     }
 
-    const botoes = ['Clientes', 'Cadastros', 'Produtos', 'Serviços'];
+    const botoes = ['Clientes', 'Cadastros', 'Produtos', 'Serviços', 'Mais consumiram em quantidade'];
 
     const construirView = () => {
         if (tela === 'Clientes') {
@@ -83,6 +84,13 @@ export default function Roteador() {
                 <>
                     <BarraNavegacao seletorView={selecionarView} tema="#87c7fd" botoes={botoes} />
                     <FormularioAtualizarPet tema="#5eb4fc" red="#fc6464" azul="#5eb4fc" />
+                </>
+            )
+        } else if (tela === "Mais consumiram em quantidade") {
+            return (
+                <>
+                    <BarraNavegacao seletorView={selecionarView} tema="#87c7fd" botoes={botoes} />
+                    <ListaClientesMaisConsumiram />
                 </>
             )
         } else {
