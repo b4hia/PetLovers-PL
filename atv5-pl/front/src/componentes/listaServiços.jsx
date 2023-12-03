@@ -50,6 +50,12 @@ export default function Serviço(props) {
         servicosMaisConsumidos();
     }, []);
 
+    function handleDelete(id) {
+        axios.delete(`http://localhost:3001/servicos/${id}`).then((resposta) => {
+            console.log(resposta.data);
+        });
+    };
+
     const handleEdit = (e) => {
         e.preventDefault();
         if (edit) {
@@ -76,7 +82,7 @@ export default function Serviço(props) {
                             <span className="input-group-text">.00</span>
                         </div>
                         <div className="input-group mb-3">
-                            <a href="!!"><button className="input-group-text" style={{ background: red }}><i className="bi bi-trash" style={{ fontSize: 20 }}></i></button></a>
+                            <a href="!!"><button className="input-group-text" style={{ background: red }} onClick={() => handleDelete(servico.id)}><i className="bi bi-trash" style={{ fontSize: 20 }}></i></button></a>
                             <a href="!!"><button className="input-group-text" style={{ background: green }} value={servicos.indexOf(servico)} onClick={(e) => handleEdit(e)}><i className="bi bi-pencil" style={{ fontSize: 20 }}></i></button></a>
                         </div>
                     </div>

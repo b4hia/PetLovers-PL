@@ -51,6 +51,12 @@ export default function Produtos(props) {
         produtosMaisConsumidos();
     }, []);
 
+    function handleDelete(id) {
+        axios.delete(`http://localhost:3001/produtos/${id}`).then((resposta) => {
+            console.log(resposta.data);
+        });
+    };
+
     function handleEdit(e) {
         e.preventDefault();
         if (edit) {
@@ -77,7 +83,7 @@ export default function Produtos(props) {
                             <span className="input-group-text">.00</span>
                         </div>
                         <div className="input-group mb-3">
-                            <a href="!!"><button className="input-group-text" style={{ background: red }}><i className="bi bi-trash" style={{ fontSize: 20 }}></i></button></a>
+                            <a href="!!"><button className="input-group-text" style={{ background: red }} onClick={() => handleDelete(produto.id)}><i className="bi bi-trash" style={{ fontSize: 20 }}></i></button></a>
                             <a href="!!"><button className="input-group-text" style={{ background: green }} onClick={(e) => handleEdit(e)} value={produtos.indexOf(produto)}><i className="bi bi-pencil" style={{ fontSize: 20 }}></i></button></a>
                         </div>
                     </div>
