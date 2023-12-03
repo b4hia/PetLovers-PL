@@ -54,7 +54,7 @@ export default function Produtos(props) {
     function handleEdit(e) {
         e.preventDefault();
         if (edit) {
-            alterarProduto({ id: id, nome: nome, preco: preco });
+            alterarProduto({ id: id, nome: nome, preco: Number(preco) });
         };
         setEdit(!edit);
     };
@@ -101,7 +101,7 @@ export default function Produtos(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        cadastrarProduto({ nome: nomeProduto, preco: precoProduto });
+        cadastrarProduto({ nome: nomeProduto, preco: Number(precoProduto) });
     };
 
     return (

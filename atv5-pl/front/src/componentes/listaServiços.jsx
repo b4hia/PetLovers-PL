@@ -53,7 +53,7 @@ export default function Serviço(props) {
     const handleEdit = (e) => {
         e.preventDefault();
         if (edit) {
-            alterarServico({ id: id, nome: nome, preco: preco });
+            alterarServico({ id: id, nome: nome, preco: Number(preco) });
         };
         setEdit(!edit);
     };
@@ -90,7 +90,7 @@ export default function Serviço(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        cadastrarServico({ nome: nomeServico, preco: precoServico });
+        cadastrarServico({ nome: nomeServico, preco: Number(precoServico) });
     };
 
     let listaConsumidos = servicosConsumidos.map((servico) => {
