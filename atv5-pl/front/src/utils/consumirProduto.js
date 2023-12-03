@@ -12,7 +12,8 @@ export default function consumirProduto(idProduto, idCliente, idPet, quantidade)
                         idCliente: Number(idCliente),
                         idProduto: Number(idProduto),
                         idPet: Number(idPet),
-                        quantidade: Number(quantidade)
+                        quantidade: Number(quantidade),
+                        valor: Number(produto.preco)
                     });
                     alert("Produto comprado com sucesso!");
                 } else alert("Cliente não encontrado!");

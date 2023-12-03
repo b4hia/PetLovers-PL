@@ -12,7 +12,8 @@ export default function consumirServico(idServico, idCliente, idPet, quantidade)
                         idCliente: Number(idCliente),
                         idServico: Number(idServico),
                         idPet: Number(idPet),
-                        quantidade: Number(quantidade)
+                        quantidade: Number(quantidade),
+                        valor: Number(servico.preco)
                     });
                     alert("Serviço comprado com sucesso!");
                 } else alert("Cliente não encontrado!");
