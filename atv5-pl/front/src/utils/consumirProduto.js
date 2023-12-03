@@ -9,10 +9,10 @@ export default function consumirProduto(idProduto, idCliente, idPet, quantidade)
                 const cliente = res.data;
                 if (cliente) {
                     axios.post("http://localhost:3001/vendas_produtos", {
-                        idCliente: idCliente,
-                        idProduto: idProduto,
-                        idPet: idPet,
-                        quantidade: quantidade
+                        idCliente: Number(idCliente),
+                        idProduto: Number(idProduto),
+                        idPet: Number(idPet),
+                        quantidade: Number(quantidade)
                     });
                     alert("Produto comprado com sucesso!");
                 } else alert("Cliente não encontrado!");

@@ -9,10 +9,10 @@ export default function consumirServico(idServico, idCliente, idPet, quantidade)
                 const cliente = res.data;
                 if (cliente) {
                     axios.post("http://localhost:3001/vendas_servicos", {
-                        idCliente: idCliente,
-                        idServico: idServico,
-                        idPet: idPet,
-                        quantidade: quantidade
+                        idCliente: Number(idCliente),
+                        idServico: Number(idServico),
+                        idPet: Number(idPet),
+                        quantidade: Number(quantidade)
                     });
                     alert("Serviço comprado com sucesso!");
                 } else alert("Cliente não encontrado!");
