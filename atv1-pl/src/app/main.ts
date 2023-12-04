@@ -26,6 +26,7 @@ import Listagem10Clientes from "../negocio/listagem10Clientes";
 import ListagemProdutoPorCPF from "../negocio/listagemProdutoConsumido";
 import ListagemServicoPorCPF from "../negocio/listagemServicoConsumido";
 import RG from "../modelo/rg";
+import ListagemMaisConsumidos from "../negocio/listagemMaisConsumidos";
 
 console.log(`Bem-vindo ao melhor sistema de gerenciamento de pet shops e clínicas veterinarias`)
 let empresa = new Empresa()
@@ -61,16 +62,10 @@ while (execucao) {
     console.log(`19 - Pedir produto`);
     console.log(`20 - Listar produtos consumidos por cliente`);	
     
-    
-        
     //Listagens
     console.log(`21 - Listar os 5 clientes que mais consumiram produtos ou serviços por valor`);
     console.log(`22 - Listar os 10 clientes que mais consumiram produtos ou serviços por quantidade`);
     console.log(`23 - Listar os Serviços ou Produtos mais consumidos`);
-    
-    
-    
-    
     
     console.log(`0 - Sair`);
 
@@ -166,6 +161,9 @@ while (execucao) {
             let listagem10Clientes = new Listagem10Clientes(empresa.getClientes);
             listagem10Clientes.listar();
             break;
+        case 23:
+            let listagemMaisConsumidos = new ListagemMaisConsumidos(empresa.getClientes, empresa.getProdutos, empresa.getServicos);
+            listagemMaisConsumidos.listar();
         case 0:
             execucao = false
             console.log(`Até mais`)
