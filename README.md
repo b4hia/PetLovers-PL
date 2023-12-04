@@ -83,7 +83,7 @@ Para que a execução do sistema e seu uso sejam efetivados, tenha instalado as 
  #### Especificação das Listagens
 - [x] Listagem dos 10 clientes que mais consumiram produtos ou serviços, em quantidade, não em valor.
 - [x] Listagem geral dos serviços ou produtos mais consumidos.
-- [ ] Listagem dos serviços ou produtos mais consumidos por tipo e raça de pets.
+- [x] Listagem dos serviços ou produtos mais consumidos por tipo e raça de pets.
 - [x] Listagem dos 5 clientes que mais consumiram em valor, não em quantidade.
 
 <br>
