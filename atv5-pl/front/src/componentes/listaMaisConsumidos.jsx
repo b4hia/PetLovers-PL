@@ -101,20 +101,19 @@ export default function MaisConsumidos(props) {
             let maisConsumido = this.produtos[0];
             console.log("maisConsumido:", maisConsumido);
             if (maisConsumido === undefined) {
-                throw new Error("Não há produtos cadastrados para este tipo de pet.");
-            } else {
-                return maisConsumido.buscarNomeProduto();
+                return "Nenhum produto consumido";
             };
+            return maisConsumido.id;
+
         };
 
         maisConsumidoServico() {
             this.ordenarProdutosServicos();
             let maisConsumido = this.servicos[0];
             if (maisConsumido === undefined) {
-                throw new Error("Não há serviços cadastrados para este tipo de pet.");
-            } else {
-                return maisConsumido.buscarNomeServico();
+                return "Nenhum serviço consumido";
             };
+            return maisConsumido.id;
         };
     };
 
@@ -190,9 +189,6 @@ export default function MaisConsumidos(props) {
         return tipos;
     };
 
-    // TIPO     | PRODUTO     TIPO     | SERVIÇO
-    // CACHORRO | SHAMPOO     CACHORRO | BANHO
-
     useEffect(() => {
         getPets();
         getVendasServicos();
@@ -203,94 +199,30 @@ export default function MaisConsumidos(props) {
 
     let tipos = getProdutosServicosMaisConsumidosPorTipoPet();
     let produtosMaisConsumidosTipo = tipos.map((tipo) => {
-        try {
-            return (
-                <tr>
-                    <th scope="row">{tipo.nome}</th>
-                    <td>{tipo.maisConsumidoProduto()}</td>
-                    <td>{tipo.maisConsumidoServico()}</td>
-                </tr>
-            )
-        } catch (error) {
-            return (
-                <tr>
-                    <th scope="row">{tipo.nome}</th>
-                    <td>***</td>
-                    <td>***</td>
-                </tr>
-            )
-        };
+        return (
+            <tr>
+                <th scope="row">{tipo.nome}</th>
+                <td>{tipo.maisConsumidoProduto()}</td>
+                <td>{tipo.maisConsumidoServico()}</td>
+            </tr>
+        )
     });
 
     return (
         <div className="container-fluid">
             <br />
-            <h5>Produtos mais consumidos por tipo de Pet</h5>
+            <h5>Produtos e serviços mais consumidos por tipo de Pet</h5>
             <br />
             <table className="table table-bordered">
                 <thead>
                     <tr>
                         <th scope="col">Tipo</th>
-                        <th scope="col">Produto</th>
-                        <th scope="col">Servico</th>
+                        <th scope="col">ID Produto</th>
+                        <th scope="col">ID Servico</th>
                     </tr>
                 </thead>
                 <tbody>
                     {produtosMaisConsumidosTipo}
-                </tbody>
-            </table>
-            <br />
-            <h5>Serviços mais consumidos por tipo de Pet</h5>
-            <br />
-            <table className="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">Cachorro</th>
-                        <th scope="col" style={{ background: tema }}>Raça</th>
-                        <th scope="col">Gato</th>
-                        <th scope="col" style={{ background: tema }}>Raça</th>
-                        <th scope="col">Ave</th>
-                        <th scope="col" style={{ background: tema }}>Raça</th>
-                        <th scope="col">Roedor</th>
-                        <th scope="col" style={{ background: tema }}>Raça</th>
-                        <th scope="col">Peixe</th>
-                        <th scope="col" style={{ background: tema }}>Raça</th>
-                        <th scope="col">Réptil</th>
-                        <th scope="col" style={{ background: tema }}>Raça</th>
-                        <th scope="col">Outros</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">NomeServiço</th>
-                        <td style={{ background: tema }}>***</td>
-                        <td>NomeServiço</td>
-                        <td style={{ background: tema }}>***</td>
-                        <td>NomeServiço</td>
-                        <td style={{ background: tema }}>***</td>
-                        <td>NomeServiço</td>
-                        <td style={{ background: tema }}>***</td>
-                        <td>NomeServiço</td>
-                        <td style={{ background: tema }}>***</td>
-                        <td>NomeServiço</td>
-                        <td style={{ background: tema }}>***</td>
-                        <td>NomeServiço</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">NomeServiço</th>
-                        <td style={{ background: tema }}>***</td>
-                        <td>NomeServiço</td>
-                        <td style={{ background: tema }}>***</td>
-                        <td>NomeServiço</td>
-                        <td style={{ background: tema }}>***</td>
-                        <td>NomeServiço</td>
-                        <td style={{ background: tema }}>***</td>
-                        <td>NomeServiço</td>
-                        <td style={{ background: tema }}>***</td>
-                        <td>NomeServiço</td>
-                        <td style={{ background: tema }}>***</td>
-                        <td>NomeServiço</td>
-                    </tr>
                 </tbody>
             </table>
         </div>
