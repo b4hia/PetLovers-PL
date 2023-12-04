@@ -27,6 +27,8 @@ export default function ListaCliente(props) {
     const [rg, setRG] = useState({});
     const [cpf, setCPF] = useState({});
     const [pet, setPet] = useState({});
+    const [ddd, setDDD] = useState({});
+    const [tel, setTel] = useState({});
 
     const [petId, setPetId] = useState(0);
     const [idServico, setIdServico] = useState('');
@@ -77,19 +79,21 @@ export default function ListaCliente(props) {
         console.log(editingClient);
     };
 
-    function handleEdit(id, nome, nome_social, rg, cpf, email) {
+    function handleEdit(id, nome, nome_social, rg, cpf, email, tel, ddd) {
         if (edit === true) {
             axios.patch(`http://localhost:3001/clientes/${id}`, {
                 nome: editingClient.nome,
                 nome_social: editingClient.nome_social,
                 rg: rg,
                 cpf: cpf,
-                email: editingClient.email
+                email: editingClient.email,
+                ddd: editingClient.ddd,
+                telefone: editingClient.tel
             }).then((resposta) => {
                 console.log(resposta.data);
             });
         } else {
-            setEditingClient({ id: id, nome: nome, nome_social: nome_social, rg: rg, cpf: cpf, email: email });
+            setEditingClient({ id: id, nome: nome, nome_social: nome_social, rg: rg, cpf: cpf, email: email, ddd: ddd, telefone: tel });
             console.log(editingClient);
         };
         setEdit(!edit);
@@ -140,6 +144,10 @@ export default function ListaCliente(props) {
                             <div className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1" style={{ background: tema }}>@</span>
                                 <input type="text" className="form-control" placeholder={cliente.email} aria-label="E-mail" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleChange(e)} name='email' />
+                            </div>
+                            <div className="input-group mb-3">
+                                <input type="text" className="form-control" placeholder={cliente.ddd} aria-label="DDD" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleChange(e)} name='ddd' />
+                                <input type="text" className="form-control" placeholder={cliente.telefone} aria-label="Telefone" aria-describedby="basic-addon1" disabled={!edit} onChange={(e) => handleChange(e)} name='tel' />
                             </div>
                             <div className="input-group mb-3">
                                 <a href="!!"><button className="input-group-text" title="Clique aqui para excluir o cliente" style={{ background: red }} onClick={() => handleDelete(cliente.id)}><i className="bi bi-trash" style={{ fontSize: 20 }}></i></button></a>

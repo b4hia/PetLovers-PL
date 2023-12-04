@@ -13,6 +13,8 @@ export default function FormularioCadastroCliente(props) {
     const [cpf, setCPF] = useState("")
     const [cpfdata, setCPFemissao] = useState("")
     const [mail, setMail] = useState("")
+    const [tel, setTel] = useState("")
+    const [ddd, setDDD] = useState("")
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -28,6 +30,8 @@ export default function FormularioCadastroCliente(props) {
                 data: cpfdata
             },
             email: mail,
+            ddd: ddd,
+            telefone: tel,
             servicos: [],
             produtos: [],
             pets: []
@@ -65,6 +69,10 @@ export default function FormularioCadastroCliente(props) {
                     <div className="input-group mb-3">
                         <span className="input-group-text" id="basic-addon1" style={{ background: tema }}>@</span>
                         <input type="text" className="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon1" onChange={(e) => {setMail(e.target.value)}} />
+                    </div>
+                    <div className="input-group mb-3">
+                        <input type="text" className="form-control" placeholder="DDD" aria-label="DDD" aria-describedby="basic-addon1" onChange={(e) => {setDDD(e.target.value)}} />
+                        <input type="text" className="form-control" placeholder="Telefone" aria-label="Telefone" aria-describedby="basic-addon1" onChange={(e) => {setTel(e.target.value)}} />
                     </div>
                     <div className="container text-center">
                         <div className="row">
