@@ -349,7 +349,6 @@ cd atv4-pl
   
 <p>
     <a href="#tec5">Tecnologia</a> | 
-    <a href="#backlog5">Backlog</a> | 
     <a href="#manual5">Manual de Usuário</a> 
 </p>
 
@@ -375,15 +374,6 @@ cd atv4-pl
 </div>
 
 <br>
-
-<span id="backlog5">
-
-## 🌱 Backlog do Produto *Atividade5*
-
- #### Épicos (Requisitos) 
-- [ ] Fazer o back-end se comunicar com front-end
-- [ ] Adaptar a GUI para realizar a conexão back-front.
-
 
 → [Voltar ao topo](#topo)
 
