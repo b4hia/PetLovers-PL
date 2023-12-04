@@ -99,7 +99,6 @@ export default function MaisConsumidos(props) {
         maisConsumidoProduto() {
             this.ordenarProdutosServicos();
             let maisConsumido = this.produtos[0];
-            console.log("maisConsumido:", maisConsumido);
             if (maisConsumido === undefined) {
                 return "Nenhum produto consumido";
             };
@@ -128,6 +127,14 @@ export default function MaisConsumidos(props) {
             });
             setPets(pets);
         });
+    };
+
+    function getRaças() {
+        let raças = [];
+        pets.forEach((pet) => {
+            if (pet.raca in raças) { } else raças.push(pet.raca)
+        });
+        return raças;
     };
 
     function getProdutos() {
@@ -189,12 +196,42 @@ export default function MaisConsumidos(props) {
         return tipos;
     };
 
+    function getProdutosServicosMaisConsumidosPorRaça() {
+        let tipos = [];
+        let raças = getRaças();
+        raças.forEach((raça) => {
+            tipos.push(new Tipo(raça));
+        });
+
+        tipos.forEach((tipo) => {
+            vendasProdutos.forEach((venda) => {
+                pets.forEach((pet) => {
+                    if (pet.raca === tipo.nome && pet.id === venda.idPet) {
+                        tipo.adicionarProduto(venda.idProduto, venda.quantidade);
+                    };
+                });
+            });
+        });
+
+        tipos.forEach((tipo) => {
+            vendasServicos.forEach((venda) => {
+                pets.forEach((pet) => {
+                    if (pet.raca === tipo.nome && pet.id === venda.idPet) {
+                        tipo.adicionarServico(venda.idServico, venda.quantidade);
+                    };
+                });
+            });
+        });
+        return tipos;
+    };
+
     useEffect(() => {
         getPets();
         getVendasServicos();
         getVendasProdutos();
         getProdutos();
         getServicos();
+        getRaças();
     }, []);
 
     let tipos = getProdutosServicosMaisConsumidosPorTipoPet();
@@ -204,6 +241,18 @@ export default function MaisConsumidos(props) {
                 <th scope="row">{tipo.nome}</th>
                 <td>{tipo.maisConsumidoProduto()}</td>
                 <td>{tipo.maisConsumidoServico()}</td>
+            </tr>
+        )
+    });
+
+    let ras = getProdutosServicosMaisConsumidosPorRaça();
+    console.log(ras);
+    let produtosMaisConsumidosRaça = ras.map((raça) => {
+        return (
+            <tr>
+                <th scope="row">{raça.nome}</th>
+                <td>{raça.maisConsumidoProduto()}</td>
+                <td>{raça.maisConsumidoServico()}</td>
             </tr>
         )
     });
@@ -218,13 +267,28 @@ export default function MaisConsumidos(props) {
                     <tr>
                         <th scope="col">Tipo</th>
                         <th scope="col">ID Produto</th>
-                        <th scope="col">ID Servico</th>
+                        <th scope="col">ID Serviço</th>
                     </tr>
                 </thead>
                 <tbody>
                     {produtosMaisConsumidosTipo}
                 </tbody>
             </table>
+            <br />
+            <h5>Produtos e serviços mais consumidos por raça de Pet</h5>
+            <br />
+            <table className="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Raça</th>
+                        <th scope="col">ID Produto</th>
+                        <th scope="col">ID Serviço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {produtosMaisConsumidosRaça}
+                </tbody>
+            </table>
         </div>
     )
-}
+};
